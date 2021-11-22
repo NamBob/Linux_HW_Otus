@@ -1,0 +1,1033 @@
+Script started on Thu 18 Nov 2021 11:47:43 AM UTC
+]0;vagrant@zfs:~[?1034h[vagrant@zfs ~]$ sudo su
+]0;root@zfs:/home/vagrant[?1034h[root@zfs vagrant]# yum install -y https://zfsonlinux.org/epel/zfs-release.el7_9.noarch.rpm
+Loaded plugins: fastestmirror
+
+zfs-release.el7_9.noarch.rpm                                                                                   | 5.4 kB  00:00:00     
+Examining /var/tmp/yum-root-HdoCmx/zfs-release.el7_9.noarch.rpm: zfs-release-1-10.noarch
+Marking /var/tmp/yum-root-HdoCmx/zfs-release.el7_9.noarch.rpm to be installed
+Resolving Dependencies
+--> Running transaction check
+---> Package zfs-release.noarch 0:1-10 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+======================================================================================================================================
+ Package                        Arch                      Version                  Repository                                    Size
+======================================================================================================================================
+Installing:
+ [1mzfs-release(B[m                    noarch                    1-10                     /zfs-release.el7_9.noarch                    3.1 k
+
+Transaction Summary
+======================================================================================================================================
+Install  1 Package
+
+Total size: 3.1 k
+Installed size: 3.1 k
+Downloading packages:
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+
+  Installing : zfs-release-1-10.noarch [                                                                                        ] 1/1
+  Installing : zfs-release-1-10.noarch [#############################################                                           ] 1/1
+  Installing : zfs-release-1-10.noarch [####################################################################################    ] 1/1
+  Installing : zfs-release-1-10.noarch                                                                                            1/1 
+
+  Verifying  : zfs-release-1-10.noarch                                                                                            1/1 
+
+Installed:
+  zfs-release.noarch 0:1-10                                                                                                           
+
+Complete!
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-zfsonlinux
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# yum-config-manager --disable zfs
+Loaded plugins: fastestmirror
+============================================================= repo: zfs ==============================================================
+[zfs]
+async = True
+bandwidth = 0
+base_persistdir = /var/lib/yum/repos/x86_64/7
+baseurl = http://download.zfsonlinux.org/epel/7.9/x86_64/
+cache = 0
+cachedir = /var/cache/yum/x86_64/7/zfs
+check_config_file_age = True
+compare_providers_priority = 80
+cost = 1000
+deltarpm_metadata_percentage = 100
+deltarpm_percentage = 
+enabled = 0
+enablegroups = True
+exclude = 
+failovermethod = priority
+ftp_disable_epsv = False
+gpgcadir = /var/lib/yum/repos/x86_64/7/zfs/gpgcadir
+gpgcakey = 
+gpgcheck = True
+gpgdir = /var/lib/yum/repos/x86_64/7/zfs/gpgdir
+gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-zfsonlinux
+hdrdir = /var/cache/yum/x86_64/7/zfs/headers
+http_caching = all
+includepkgs = 
+ip_resolve = 
+keepalive = True
+keepcache = False
+mddownloadpolicy = sqlite
+mdpolicy = group:small
+mediaid = 
+metadata_expire = 604800
+metadata_expire_filter = read-only:present
+metalink = 
+minrate = 0
+mirrorlist = 
+mirrorlist_expire = 86400
+name = OpenZFS for EL7 - dkms
+old_base_cache_dir = 
+password = 
+persistdir = /var/lib/yum/repos/x86_64/7/zfs
+pkgdir = /var/cache/yum/x86_64/7/zfs/packages
+proxy = False
+proxy_dict = 
+proxy_password = 
+proxy_username = 
+repo_gpgcheck = False
+retries = 10
+skip_if_unavailable = False
+ssl_check_cert_permissions = True
+sslcacert = 
+sslclientcert = 
+sslclientkey = 
+sslverify = True
+throttle = 0
+timeout = 30.0
+ui_id = zfs/x86_64
+ui_repoid_vars = releasever,
+   basearch
+username = 
+
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# yum-config-manager --enable zfs-kmod
+Loaded plugins: fastestmirror
+=========================================================== repo: zfs-kmod ===========================================================
+[zfs-kmod]
+async = True
+bandwidth = 0
+base_persistdir = /var/lib/yum/repos/x86_64/7
+baseurl = http://download.zfsonlinux.org/epel/7.9/kmod/x86_64/
+cache = 0
+cachedir = /var/cache/yum/x86_64/7/zfs-kmod
+check_config_file_age = True
+compare_providers_priority = 80
+cost = 1000
+deltarpm_metadata_percentage = 100
+deltarpm_percentage = 
+enabled = 1
+enablegroups = True
+exclude = 
+failovermethod = priority
+ftp_disable_epsv = False
+gpgcadir = /var/lib/yum/repos/x86_64/7/zfs-kmod/gpgcadir
+gpgcakey = 
+gpgcheck = True
+gpgdir = /var/lib/yum/repos/x86_64/7/zfs-kmod/gpgdir
+gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-zfsonlinux
+hdrdir = /var/cache/yum/x86_64/7/zfs-kmod/headers
+http_caching = all
+includepkgs = 
+ip_resolve = 
+keepalive = True
+keepcache = False
+mddownloadpolicy = sqlite
+mdpolicy = group:small
+mediaid = 
+metadata_expire = 604800
+metadata_expire_filter = read-only:present
+metalink = 
+minrate = 0
+mirrorlist = 
+mirrorlist_expire = 86400
+name = OpenZFS for EL7 - kmod
+old_base_cache_dir = 
+password = 
+persistdir = /var/lib/yum/repos/x86_64/7/zfs-kmod
+pkgdir = /var/cache/yum/x86_64/7/zfs-kmod/packages
+proxy = False
+proxy_dict = 
+proxy_password = 
+proxy_username = 
+repo_gpgcheck = False
+retries = 10
+skip_if_unavailable = False
+ssl_check_cert_permissions = True
+sslcacert = 
+sslclientcert = 
+sslclientkey = 
+sslverify = True
+throttle = 0
+timeout = 30.0
+ui_id = zfs-kmod/x86_64
+ui_repoid_vars = releasever,
+   basearch
+username = 
+
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# yum install zfs
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: mirror.axelname.ru
+ * extras: mirror.yandex.ru
+ * updates: mirror.docker.ru
+
+zfs-kmod                                                                                                       | 2.9 kB  00:00:00     
+
+zfs-kmod/x86_64/primary_db                           0% [                                           ]  0.0 B/s |    0 B  --:--:-- ETA 
+
+zfs-kmod/x86_64/primary_db                           68% [============================-             ]  0.0 B/s |  58 kB  --:--:-- ETA 
+
+zfs-kmod/x86_64/primary_db                                                                                     |  84 kB  00:00:00     
+Resolving Dependencies
+--> Running transaction check
+---> Package zfs.x86_64 0:2.0.6-1.el7 will be installed
+--> Processing Dependency: zfs-kmod = 2.0.6 for package: zfs-2.0.6-1.el7.x86_64
+--> Processing Dependency: libzpool4 = 2.0.6 for package: zfs-2.0.6-1.el7.x86_64
+--> Processing Dependency: libzfs4 = 2.0.6 for package: zfs-2.0.6-1.el7.x86_64
+--> Processing Dependency: libuutil3 = 2.0.6 for package: zfs-2.0.6-1.el7.x86_64
+--> Processing Dependency: libnvpair3 = 2.0.6 for package: zfs-2.0.6-1.el7.x86_64
+--> Processing Dependency: sysstat for package: zfs-2.0.6-1.el7.x86_64
+--> Processing Dependency: libzpool.so.4()(64bit) for package: zfs-2.0.6-1.el7.x86_64
+--> Processing Dependency: libzfs_core.so.3()(64bit) for package: zfs-2.0.6-1.el7.x86_64
+--> Processing Dependency: libzfs.so.4()(64bit) for package: zfs-2.0.6-1.el7.x86_64
+--> Processing Dependency: libuutil.so.3()(64bit) for package: zfs-2.0.6-1.el7.x86_64
+--> Processing Dependency: libnvpair.so.3()(64bit) for package: zfs-2.0.6-1.el7.x86_64
+--> Running transaction check
+---> Package kmod-zfs.x86_64 0:2.0.6-1.el7 will be installed
+---> Package libnvpair3.x86_64 0:2.0.6-1.el7 will be installed
+---> Package libuutil3.x86_64 0:2.0.6-1.el7 will be installed
+---> Package libzfs4.x86_64 0:2.0.6-1.el7 will be installed
+---> Package libzpool4.x86_64 0:2.0.6-1.el7 will be installed
+---> Package sysstat.x86_64 0:10.1.5-19.el7 will be installed
+--> Processing Dependency: libsensors.so.4()(64bit) for package: sysstat-10.1.5-19.el7.x86_64
+--> Running transaction check
+---> Package lm_sensors-libs.x86_64 0:3.4.0-8.20160601gitf9185e5.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+======================================================================================================================================
+ Package                         Arch                   Version                                        Repository                Size
+======================================================================================================================================
+Installing:
+ zfs                             x86_64                 2.0.6-1.el7                                    zfs-kmod                 592 k
+Installing for dependencies:
+ kmod-zfs                        x86_64                 2.0.6-1.el7                                    zfs-kmod                 1.4 M
+ libnvpair3                      x86_64                 2.0.6-1.el7                                    zfs-kmod                  32 k
+ libuutil3                       x86_64                 2.0.6-1.el7                                    zfs-kmod                  26 k
+ libzfs4                         x86_64                 2.0.6-1.el7                                    zfs-kmod                 218 k
+ libzpool4                       x86_64                 2.0.6-1.el7                                    zfs-kmod                 1.2 M
+ lm_sensors-libs                 x86_64                 3.4.0-8.20160601gitf9185e5.el7                 base                      42 k
+ sysstat                         x86_64                 10.1.5-19.el7                                  base                     315 k
+
+Transaction Summary
+======================================================================================================================================
+Install  1 Package (+7 Dependent packages)
+
+Total download size: 3.8 M
+Installed size: 13 M
+Is this ok [y/d/N]: y
+Downloading packages:
+
+(2/8): libnvpair3-2.0.6-1.el7.x86_64.rpm             0% [                                           ]  0.0 B/s |    0 B  --:--:-- ETA 
+
+(1/8): libnvpair3-2.0.6-1.el7.x86_64.rpm                                                                       |  32 kB  00:00:00     
+
+(3/8): libuutil3-2.0.6-1.el7.x86_64.rpm              2% [-                                          ]  0.0 B/s |  89 kB  --:--:-- ETA 
+
+(2/8): libuutil3-2.0.6-1.el7.x86_64.rpm                                                                        |  26 kB  00:00:00     
+
+(4/8): libzfs4-2.0.6-1.el7.x86_64.rpm                7% [===                                        ] 240 kB/s | 286 kB  00:00:15 ETA 
+
+(3/8): kmod-zfs-2.0.6-1.el7.x86_64.rpm               12% [=====                                     ] 262 kB/s | 470 kB  00:00:13 ETA 
+
+(3/8): libzfs4-2.0.6-1.el7.x86_64.rpm                                                                          | 218 kB  00:00:00     
+
+(4/8): kmod-zfs-2.0.6-1.el7.x86_64.rpm                                                                         | 1.4 MB  00:00:01     
+
+(5/8): lm_sensors-libs-3.4.0-8.20160601gitf9185e5.el7.x86_64.rpm                                               |  42 kB  00:00:00     
+
+(6/8): sysstat-10.1.5-19.el7.x86_64.rpm                                                                        | 315 kB  00:00:00     
+
+(7/8): zfs-2.0.6-1.el7.x86_64.rpm                                                                              | 592 kB  00:00:00     
+
+(8/8): libzpool4-2.0.6-1.el7.x86_64.rpm              88% [=====================================     ] 824 kB/s | 3.4 MB  00:00:00 ETA 
+
+(8/8): libzpool4-2.0.6-1.el7.x86_64.rpm                                                                        | 1.2 MB  00:00:00     
+--------------------------------------------------------------------------------------------------------------------------------------
+Total                                                                                                 1.6 MB/s | 3.8 MB  00:00:02     
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+
+  Installing : libnvpair3-2.0.6-1.el7.x86_64 [                                                                                  ] 1/8
+  Installing : libnvpair3-2.0.6-1.el7.x86_64 [#######################################################                           ] 1/8
+  Installing : libnvpair3-2.0.6-1.el7.x86_64 [################################################################################# ] 1/8
+  Installing : libnvpair3-2.0.6-1.el7.x86_64                                                                                      1/8 
+
+  Installing : libuutil3-2.0.6-1.el7.x86_64 [                                                                                   ] 2/8
+  Installing : libuutil3-2.0.6-1.el7.x86_64 [################################################################################## ] 2/8
+  Installing : libuutil3-2.0.6-1.el7.x86_64                                                                                       2/8 
+
+  Installing : libzfs4-2.0.6-1.el7.x86_64 [                                                                                     ] 3/8
+  Installing : libzfs4-2.0.6-1.el7.x86_64 [#########                                                                            ] 3/8
+  Installing : libzfs4-2.0.6-1.el7.x86_64 [###################                                                                  ] 3/8
+  Installing : libzfs4-2.0.6-1.el7.x86_64 [############################                                                         ] 3/8
+  Installing : libzfs4-2.0.6-1.el7.x86_64 [#######################################                                              ] 3/8
+  Installing : libzfs4-2.0.6-1.el7.x86_64 [################################################                                     ] 3/8
+  Installing : libzfs4-2.0.6-1.el7.x86_64 [##########################################################                           ] 3/8
+  Installing : libzfs4-2.0.6-1.el7.x86_64 [###############################################################                      ] 3/8
+  Installing : libzfs4-2.0.6-1.el7.x86_64 [#########################################################################            ] 3/8
+  Installing : libzfs4-2.0.6-1.el7.x86_64 [#################################################################################    ] 3/8
+  Installing : libzfs4-2.0.6-1.el7.x86_64 [#################################################################################### ] 3/8
+  Installing : libzfs4-2.0.6-1.el7.x86_64                                                                                         3/8 
+
+  Installing : libzpool4-2.0.6-1.el7.x86_64 [                                                                                   ] 4/8
+  Installing : libzpool4-2.0.6-1.el7.x86_64 [##                                                                                 ] 4/8
+  Installing : libzpool4-2.0.6-1.el7.x86_64 [###                                                                                ] 4/8
+  Installing : libzpool4-2.0.6-1.el7.x86_64 [####                                                                               ] 4/8
+  Installing : libzpool4-2.0.6-1.el7.x86_64 [######                                                                             ] 4/8
+  Installing : libzpool4-2.0.6-1.el7.x86_64 [#######                                                                            ] 4/8
+  Installing : libzpool4-2.0.6-1.el7.x86_64 [#########                                                                          ] 4/8
+  Installing : libzpool4-2.0.6-1.el7.x86_64 [###########                                                                        ] 4/8
+  Installing : libzpool4-2.0.6-1.el7.x86_64 [#############                                                                      ] 4/8
+  Installing : libzpool4-2.0.6-1.el7.x86_64 [##############                                                                     ] 4/8
+  Installing : libzpool4-2.0.6-1.el7.x86_64 [###############                                                                    ] 4/8
+  Installing : libzpool4-2.0.6-1.el7.x86_64 [#################                                                                  ] 4/8
+  Installing : libzpool4-2.0.6-1.el7.x86_64 [##################                                                                 ] 4/8
+  Installing : libzpool4-2.0.6-1.el7.x86_64 [###################                                                                ] 4/8
+  Installing : libzpool4-2.0.6-1.el7.x86_64 [####################                                                               ] 4/8
+  Installing : libzpool4-2.0.6-1.el7.x86_64 [######################                                                             ] 4/8
+  Installing : libzpool4-2.0.6-1.el7.x86_64 [########################                                                           ] 4/8
+  Installing : libzpool4-2.0.6-1.el7.x86_64 [##########################                                                         ] 4/8
+  Installing : libzpool4-2.0.6-1.el7.x86_64 [############################                                                       ] 4/8
+  Installing : libzpool4-2.0.6-1.el7.x86_64 [#############################                                                      ] 4/8
+  Installing : libzpool4-2.0.6-1.el7.x86_64 [##############################                                                     ] 4/8
+  Installing : libzpool4-2.0.6-1.el7.x86_64 [###############################                                                    ] 4/8
+  Installing : libzpool4-2.0.6-1.el7.x86_64 [#################################                                                  ] 4/8
+  Installing : libzpool4-2.0.6-1.el7.x86_64 [##################################                                                 ] 4/8
+  Installing : libzpool4-2.0.6-1.el7.x86_64 [###################################                                                ] 4/8
+  Installing : libzpool4-2.0.6-1.el7.x86_64 [#####################################                                              ] 4/8
+  Installing : libzpool4-2.0.6-1.el7.x86_64 [######################################                                             ] 4/8
+  Installing : libzpool4-2.0.6-1.el7.x86_64 [#######################################                                            ] 4/8
+  Installing : libzpool4-2.0.6-1.el7.x86_64 [#########################################                                          ] 4/8
+  Installing : libzpool4-2.0.6-1.el7.x86_64 [##########################################                                         ] 4/8
+  Installing : libzpool4-2.0.6-1.el7.x86_64 [###########################################                                        ] 4/8
+  Installing : libzpool4-2.0.6-1.el7.x86_64 [#############################################                                      ] 4/8
+  Installing : libzpool4-2.0.6-1.el7.x86_64 [##############################################                                     ] 4/8
+  Installing : libzpool4-2.0.6-1.el7.x86_64 [################################################                                   ] 4/8
+  Installing : libzpool4-2.0.6-1.el7.x86_64 [##################################################                                 ] 4/8
+  Installing : libzpool4-2.0.6-1.el7.x86_64 [####################################################                               ] 4/8
+  Installing : libzpool4-2.0.6-1.el7.x86_64 [#####################################################                              ] 4/8
+  Installing : libzpool4-2.0.6-1.el7.x86_64 [######################################################                             ] 4/8
+  Installing : libzpool4-2.0.6-1.el7.x86_64 [#######################################################                            ] 4/8
+  Installing : libzpool4-2.0.6-1.el7.x86_64 [#########################################################                          ] 4/8
+  Installing : libzpool4-2.0.6-1.el7.x86_64 [##########################################################                         ] 4/8
+  Installing : libzpool4-2.0.6-1.el7.x86_64 [###########################################################                        ] 4/8
+  Installing : libzpool4-2.0.6-1.el7.x86_64 [#############################################################                      ] 4/8
+  Installing : libzpool4-2.0.6-1.el7.x86_64 [###############################################################                    ] 4/8
+  Installing : libzpool4-2.0.6-1.el7.x86_64 [#################################################################                  ] 4/8
+  Installing : libzpool4-2.0.6-1.el7.x86_64 [##################################################################                 ] 4/8
+  Installing : libzpool4-2.0.6-1.el7.x86_64 [####################################################################               ] 4/8
+  Installing : libzpool4-2.0.6-1.el7.x86_64 [#####################################################################              ] 4/8
+  Installing : libzpool4-2.0.6-1.el7.x86_64 [######################################################################             ] 4/8
+  Installing : libzpool4-2.0.6-1.el7.x86_64 [########################################################################           ] 4/8
+  Installing : libzpool4-2.0.6-1.el7.x86_64 [#########################################################################          ] 4/8
+  Installing : libzpool4-2.0.6-1.el7.x86_64 [##########################################################################         ] 4/8
+  Installing : libzpool4-2.0.6-1.el7.x86_64 [############################################################################       ] 4/8
+  Installing : libzpool4-2.0.6-1.el7.x86_64 [#############################################################################      ] 4/8
+  Installing : libzpool4-2.0.6-1.el7.x86_64 [##############################################################################     ] 4/8
+  Installing : libzpool4-2.0.6-1.el7.x86_64 [################################################################################   ] 4/8
+  Installing : libzpool4-2.0.6-1.el7.x86_64 [#################################################################################  ] 4/8
+  Installing : libzpool4-2.0.6-1.el7.x86_64 [################################################################################## ] 4/8
+  Installing : libzpool4-2.0.6-1.el7.x86_64                                                                                       4/8 
+
+  Installing : lm_sensors-libs-3.4.0-8.20160601gitf9185e5.el7.x86_64 [                                                          ] 5/8
+  Installing : lm_sensors-libs-3.4.0-8.20160601gitf9185e5.el7.x86_64 [######################################################### ] 5/8
+  Installing : lm_sensors-libs-3.4.0-8.20160601gitf9185e5.el7.x86_64                                                              5/8 
+
+  Installing : sysstat-10.1.5-19.el7.x86_64 [                                                                                   ] 6/8
+  Installing : sysstat-10.1.5-19.el7.x86_64 [###                                                                                ] 6/8
+  Installing : sysstat-10.1.5-19.el7.x86_64 [########                                                                           ] 6/8
+  Installing : sysstat-10.1.5-19.el7.x86_64 [###########                                                                        ] 6/8
+  Installing : sysstat-10.1.5-19.el7.x86_64 [###############                                                                    ] 6/8
+  Installing : sysstat-10.1.5-19.el7.x86_64 [###################                                                                ] 6/8
+  Installing : sysstat-10.1.5-19.el7.x86_64 [####################                                                               ] 6/8
+  Installing : sysstat-10.1.5-19.el7.x86_64 [########################                                                           ] 6/8
+  Installing : sysstat-10.1.5-19.el7.x86_64 [#############################                                                      ] 6/8
+  Installing : sysstat-10.1.5-19.el7.x86_64 [################################                                                   ] 6/8
+  Installing : sysstat-10.1.5-19.el7.x86_64 [#####################################                                              ] 6/8
+  Installing : sysstat-10.1.5-19.el7.x86_64 [#######################################                                            ] 6/8
+  Installing : sysstat-10.1.5-19.el7.x86_64 [###########################################                                        ] 6/8
+  Installing : sysstat-10.1.5-19.el7.x86_64 [################################################                                   ] 6/8
+  Installing : sysstat-10.1.5-19.el7.x86_64 [#################################################                                  ] 6/8
+  Installing : sysstat-10.1.5-19.el7.x86_64 [#####################################################                              ] 6/8
+  Installing : sysstat-10.1.5-19.el7.x86_64 [#######################################################                            ] 6/8
+  Installing : sysstat-10.1.5-19.el7.x86_64 [########################################################                           ] 6/8
+  Installing : sysstat-10.1.5-19.el7.x86_64 [#########################################################                          ] 6/8
+  Installing : sysstat-10.1.5-19.el7.x86_64 [###########################################################                        ] 6/8
+  Installing : sysstat-10.1.5-19.el7.x86_64 [############################################################                       ] 6/8
+  Installing : sysstat-10.1.5-19.el7.x86_64 [#############################################################                      ] 6/8
+  Installing : sysstat-10.1.5-19.el7.x86_64 [##############################################################                     ] 6/8
+  Installing : sysstat-10.1.5-19.el7.x86_64 [###############################################################                    ] 6/8
+  Installing : sysstat-10.1.5-19.el7.x86_64 [################################################################                   ] 6/8
+  Installing : sysstat-10.1.5-19.el7.x86_64 [#################################################################                  ] 6/8
+  Installing : sysstat-10.1.5-19.el7.x86_64 [##################################################################                 ] 6/8
+  Installing : sysstat-10.1.5-19.el7.x86_64 [###################################################################                ] 6/8
+  Installing : sysstat-10.1.5-19.el7.x86_64 [####################################################################               ] 6/8
+  Installing : sysstat-10.1.5-19.el7.x86_64 [#####################################################################              ] 6/8
+  Installing : sysstat-10.1.5-19.el7.x86_64 [######################################################################             ] 6/8
+  Installing : sysstat-10.1.5-19.el7.x86_64 [#######################################################################            ] 6/8
+  Installing : sysstat-10.1.5-19.el7.x86_64 [########################################################################           ] 6/8
+  Installing : sysstat-10.1.5-19.el7.x86_64 [#########################################################################          ] 6/8
+  Installing : sysstat-10.1.5-19.el7.x86_64 [##########################################################################         ] 6/8
+  Installing : sysstat-10.1.5-19.el7.x86_64 [###########################################################################        ] 6/8
+  Installing : sysstat-10.1.5-19.el7.x86_64 [############################################################################       ] 6/8
+  Installing : sysstat-10.1.5-19.el7.x86_64 [#############################################################################      ] 6/8
+  Installing : sysstat-10.1.5-19.el7.x86_64 [##############################################################################     ] 6/8
+  Installing : sysstat-10.1.5-19.el7.x86_64 [###############################################################################    ] 6/8
+  Installing : sysstat-10.1.5-19.el7.x86_64 [################################################################################   ] 6/8
+  Installing : sysstat-10.1.5-19.el7.x86_64 [#################################################################################  ] 6/8
+  Installing : sysstat-10.1.5-19.el7.x86_64 [################################################################################## ] 6/8
+  Installing : sysstat-10.1.5-19.el7.x86_64                                                                                       6/8 
+
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [                                                                                    ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [#                                                                                   ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [##                                                                                  ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [###                                                                                 ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [####                                                                                ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [#####                                                                               ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [######                                                                              ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [#######                                                                             ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [########                                                                            ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [#########                                                                           ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [##########                                                                          ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [###########                                                                         ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [############                                                                        ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [#############                                                                       ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [##############                                                                      ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [###############                                                                     ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [################                                                                    ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [#################                                                                   ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [##################                                                                  ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [###################                                                                 ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [####################                                                                ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [#####################                                                               ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [######################                                                              ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [#######################                                                             ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [########################                                                            ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [#########################                                                           ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [##########################                                                          ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [###########################                                                         ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [############################                                                        ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [#############################                                                       ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [##############################                                                      ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [###############################                                                     ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [################################                                                    ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [#################################                                                   ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [##################################                                                  ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [###################################                                                 ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [####################################                                                ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [#####################################                                               ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [######################################                                              ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [#######################################                                             ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [########################################                                            ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [#########################################                                           ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [##########################################                                          ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [###########################################                                         ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [############################################                                        ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [#############################################                                       ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [###############################################                                     ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [################################################                                    ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [#################################################                                   ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [##################################################                                  ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [###################################################                                 ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [####################################################                                ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [#####################################################                               ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [######################################################                              ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [#######################################################                             ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [########################################################                            ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [#########################################################                           ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [##########################################################                          ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [###########################################################                         ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [############################################################                        ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [#############################################################                       ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [##############################################################                      ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [###############################################################                     ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [################################################################                    ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [##################################################################                  ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [###################################################################                 ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [####################################################################                ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [#####################################################################               ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [######################################################################              ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [#######################################################################             ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [########################################################################            ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [#########################################################################           ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [##########################################################################          ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [###########################################################################         ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [############################################################################        ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [#############################################################################       ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [##############################################################################      ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [###############################################################################     ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [################################################################################    ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [#################################################################################   ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [##################################################################################  ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64 [################################################################################### ] 7/8
+  Installing : kmod-zfs-2.0.6-1.el7.x86_64                                                                                        7/8 
+
+  Installing : zfs-2.0.6-1.el7.x86_64 [                                                                                         ] 8/8
+  Installing : zfs-2.0.6-1.el7.x86_64 [#                                                                                        ] 8/8
+  Installing : zfs-2.0.6-1.el7.x86_64 [######                                                                                   ] 8/8
+  Installing : zfs-2.0.6-1.el7.x86_64 [#########                                                                                ] 8/8
+  Installing : zfs-2.0.6-1.el7.x86_64 [###########                                                                              ] 8/8
+  Installing : zfs-2.0.6-1.el7.x86_64 [################                                                                         ] 8/8
+  Installing : zfs-2.0.6-1.el7.x86_64 [#####################                                                                    ] 8/8
+  Installing : zfs-2.0.6-1.el7.x86_64 [########################                                                                 ] 8/8
+  Installing : zfs-2.0.6-1.el7.x86_64 [#########################                                                                ] 8/8
+  Installing : zfs-2.0.6-1.el7.x86_64 [###########################                                                              ] 8/8
+  Installing : zfs-2.0.6-1.el7.x86_64 [#############################                                                            ] 8/8
+  Installing : zfs-2.0.6-1.el7.x86_64 [################################                                                         ] 8/8
+  Installing : zfs-2.0.6-1.el7.x86_64 [####################################                                                     ] 8/8
+  Installing : zfs-2.0.6-1.el7.x86_64 [########################################                                                 ] 8/8
+  Installing : zfs-2.0.6-1.el7.x86_64 [#########################################                                                ] 8/8
+  Installing : zfs-2.0.6-1.el7.x86_64 [#############################################                                            ] 8/8
+  Installing : zfs-2.0.6-1.el7.x86_64 [################################################                                         ] 8/8
+  Installing : zfs-2.0.6-1.el7.x86_64 [#################################################                                        ] 8/8
+  Installing : zfs-2.0.6-1.el7.x86_64 [###################################################                                      ] 8/8
+  Installing : zfs-2.0.6-1.el7.x86_64 [####################################################                                     ] 8/8
+  Installing : zfs-2.0.6-1.el7.x86_64 [######################################################                                   ] 8/8
+  Installing : zfs-2.0.6-1.el7.x86_64 [#######################################################                                  ] 8/8
+  Installing : zfs-2.0.6-1.el7.x86_64 [########################################################                                 ] 8/8
+  Installing : zfs-2.0.6-1.el7.x86_64 [#########################################################                                ] 8/8
+  Installing : zfs-2.0.6-1.el7.x86_64 [##########################################################                               ] 8/8
+  Installing : zfs-2.0.6-1.el7.x86_64 [###########################################################                              ] 8/8
+  Installing : zfs-2.0.6-1.el7.x86_64 [############################################################                             ] 8/8
+  Installing : zfs-2.0.6-1.el7.x86_64 [#############################################################                            ] 8/8
+  Installing : zfs-2.0.6-1.el7.x86_64 [##############################################################                           ] 8/8
+  Installing : zfs-2.0.6-1.el7.x86_64 [###############################################################                          ] 8/8
+  Installing : zfs-2.0.6-1.el7.x86_64 [################################################################                         ] 8/8
+  Installing : zfs-2.0.6-1.el7.x86_64 [#################################################################                        ] 8/8
+  Installing : zfs-2.0.6-1.el7.x86_64 [##################################################################                       ] 8/8
+  Installing : zfs-2.0.6-1.el7.x86_64 [###################################################################                      ] 8/8
+  Installing : zfs-2.0.6-1.el7.x86_64 [####################################################################                     ] 8/8
+  Installing : zfs-2.0.6-1.el7.x86_64 [#####################################################################                    ] 8/8
+  Installing : zfs-2.0.6-1.el7.x86_64 [######################################################################                   ] 8/8
+  Installing : zfs-2.0.6-1.el7.x86_64 [#######################################################################                  ] 8/8
+  Installing : zfs-2.0.6-1.el7.x86_64 [########################################################################                 ] 8/8
+  Installing : zfs-2.0.6-1.el7.x86_64 [#########################################################################                ] 8/8
+  Installing : zfs-2.0.6-1.el7.x86_64 [##########################################################################               ] 8/8
+  Installing : zfs-2.0.6-1.el7.x86_64 [############################################################################             ] 8/8
+  Installing : zfs-2.0.6-1.el7.x86_64 [#############################################################################            ] 8/8
+  Installing : zfs-2.0.6-1.el7.x86_64 [##############################################################################           ] 8/8
+  Installing : zfs-2.0.6-1.el7.x86_64 [###############################################################################          ] 8/8
+  Installing : zfs-2.0.6-1.el7.x86_64 [################################################################################         ] 8/8
+  Installing : zfs-2.0.6-1.el7.x86_64 [#################################################################################        ] 8/8
+  Installing : zfs-2.0.6-1.el7.x86_64 [##################################################################################       ] 8/8
+  Installing : zfs-2.0.6-1.el7.x86_64 [###################################################################################      ] 8/8
+  Installing : zfs-2.0.6-1.el7.x86_64 [####################################################################################     ] 8/8
+  Installing : zfs-2.0.6-1.el7.x86_64 [#####################################################################################    ] 8/8
+  Installing : zfs-2.0.6-1.el7.x86_64 [######################################################################################   ] 8/8
+  Installing : zfs-2.0.6-1.el7.x86_64 [#######################################################################################  ] 8/8
+  Installing : zfs-2.0.6-1.el7.x86_64 [######################################################################################## ] 8/8
+  Installing : zfs-2.0.6-1.el7.x86_64                                                                                             8/8 
+
+  Verifying  : libuutil3-2.0.6-1.el7.x86_64                                                                                       1/8 
+
+  Verifying  : sysstat-10.1.5-19.el7.x86_64                                                                                       2/8 
+
+  Verifying  : libzfs4-2.0.6-1.el7.x86_64                                                                                         3/8 
+
+  Verifying  : libzpool4-2.0.6-1.el7.x86_64                                                                                       4/8 
+
+  Verifying  : kmod-zfs-2.0.6-1.el7.x86_64                                                                                        5/8 
+
+  Verifying  : libnvpair3-2.0.6-1.el7.x86_64                                                                                      6/8 
+
+  Verifying  : zfs-2.0.6-1.el7.x86_64                                                                                             7/8 
+
+  Verifying  : lm_sensors-libs-3.4.0-8.20160601gitf9185e5.el7.x86_64                                                              8/8 
+
+Installed:
+  zfs.x86_64 0:2.0.6-1.el7                                                                                                            
+
+Dependency Installed:
+  kmod-zfs.x86_64 0:2.0.6-1.el7      libnvpair3.x86_64 0:2.0.6-1.el7     libuutil3.x86_64 0:2.0.6-1.el7                             
+  libzfs4.x86_64 0:2.0.6-1.el7       libzpool4.x86_64 0:2.0.6-1.el7      lm_sensors-libs.x86_64 0:3.4.0-8.20160601gitf9185e5.el7    
+  sysstat.x86_64 0:10.1.5-19.el7    
+
+Complete!
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# lsblk 
+NAME   MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+sda      8:0    0  40G  0 disk 
+└─sda1   8:1    0  40G  0 part /
+sdb      8:16   0   1G  0 disk 
+sdc      8:32   0   1G  0 disk 
+sdd      8:48   0   1G  0 disk 
+sde      8:64   0   1G  0 disk 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# zfs list
+The ZFS modules are not loaded.
+Try running '/sbin/modprobe zfs' as root to load them.
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# modprobe zfs
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# modprobe zfs[4Pzfs list
+no datasets available
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# zfs --version
+zfs-2.0.6-1
+zfs-kmod-2.0.6-1
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# zpool creater[K zpoo[K[K[Kfspool mirror /dev/sd{}b},}c}[C mirror /dev/sd{}d},}e}[C
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# zpool list
+NAME      SIZE  ALLOC   FREE  CKPOINT  EXPANDSZ   FRAG    CAP  DEDUP    HEALTH  ALTROOT
+zfspool  1.88G   106K  1.87G        -         -     0%     0%  1.00x    ONLINE  -
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# zfs list
+NAME      USED  AVAIL     REFER  MOUNTPOINT
+zfspool   106K  1.75G       24K  /zfspool
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+[K[root@zfs vagrant]# 
+[K[root@zfs vagrant]# zfs set compression=gzip-N zfspool/gzip
+cannot open 'zfspool/gzip': dataset does not exist
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# zfs set compression=gzip-N zfspool/gzip[1P[1P[1P[1@c[1@r[1@e[1@a[1@t[1@e[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P zfspool/gzip[1P zfspool/gzip
+too many arguments
+usage:
+	create [-Pnpv] [-o property=value] ... <filesystem>
+	create [-Pnpsv] [-b blocksize] [-o property=value] ... -V <size> <volume>
+
+For the property list, run: zfs set|get
+
+For the delegated permission list, run: zfs allow|unallow
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# zfs create compression=gzip zfspool/gzip[C[1Pzfspool/gzip[1Pzfspool/gzip[1Pzfspool/gzip[1Pfspool/gzip[1Pzfspool/gzip[1Pzfspool/gzip[1Pzfspool/gzip[1Pzfspool/gzip[1Pzfspool/gzip[1Pzfspool/gzip[1Pzfspool/gzip[1Pzfspool/gzip[1Pzfspool/gzip[1Pzfspool/gzip[1Pzfspool/gzip[1Pzfspool/gzip[1Pzfspool/gzip[C[C[C[C[C[C[C[C[C[C[C[C
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# zfs create zfspool/gzip-[K[K[K[K[Kzle
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# zfs create zfspool/zle[K[K[Klzjb
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# zfs create zfspool/lzjb[K[K4
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# zfs list
+NAME           USED  AVAIL     REFER  MOUNTPOINT
+zfspool        260K  1.75G     26.5K  /zfspool
+zfspool/gzip    24K  1.75G       24K  /zfspool/gzip
+zfspool/lz4     24K  1.75G       24K  /zfspool/lz4
+zfspool/lzjb    24K  1.75G       24K  /zfspool/lzjb
+zfspool/zle     24K  1.75G       24K  /zfspool/zle
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# zfs get compression zfspool/gzip
+NAME          PROPERTY     VALUE           SOURCE
+zfspool/gzip  compression  off             default
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# zfs get compression zfspool/gzip[K[K[K[K[K
+NAME     PROPERTY     VALUE           SOURCE
+zfspool  compression  off             default
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# zfs get compression zfspool[K[K[K[K[K[K[K
+NAME          PROPERTY     VALUE           SOURCE
+zfspool       compression  off             default
+zfspool/gzip  compression  off             default
+zfspool/lz4   compression  off             default
+zfspool/lzjb  compression  off             default
+zfspool/zle   compression  off             default
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# zfs set compression=gzip zfspool/gzip
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# zfs set compression=gzip zfspool/gzip[1P zfspool/gzip[1P zfspool/gzip[1P zfspool/gzip[1P zfspool/gzipl zfspool/gzipz zfspool/gzip4 zfspool/gzip[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K[Klz4
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# zfs set compression=lz4 zfspool/lz4[1P zfspool/lz4j zfspool/lz4b zfspool/lz4[C[C[C[C[C[C[C[C[C[C[C[C[K[Kjbzjb
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# zfs set compression=lzjb zfspool/lzjb[1P zfspool/lzjb[1P zfspool/lzjb[1P zfspool/lzjb[1P zfspool/lzjbz zfspool/lzjbl zfspool/lzjbe zfspool/lzjb[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K[Kzle
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# zfs set compression=zle zfspool/zlelzjb zfspool/lzjb[2P4 zfspool/lz4gzip zfspool/gzip
+[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[17Pget compression zfspool[K
+NAME          PROPERTY     VALUE           SOURCE
+zfspool       compression  off             default
+zfspool/gzip  compression  gzip            local
+zfspool/lz4   compression  lz4             local
+zfspool/lzjb  compression  lzjb            local
+zfspool/zle   compression  zle             local
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# zfs get compression [K,compressaa[K[Kratio
+NAME          PROPERTY       VALUE           SOURCE
+zfspool       compression    off             default
+zfspool       compressratio  1.00x           -
+zfspool/gzip  compression    gzip            local
+zfspool/gzip  compressratio  1.00x           -
+zfspool/lz4   compression    lz4             local
+zfspool/lz4   compressratio  1.00x           -
+zfspool/lzjb  compression    lzjb            local
+zfspool/lzjb  compressratio  1.00x           -
+zfspool/zle   compression    zle             local
+zfspool/zle   compressratio  1.00x           -
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+[K[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+[K[root@zfs vagrant]# wget http://www.gutenberg.org/ebooks/2600.txt.utf-8
+bash: wget: command not found
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# yum install -y wget
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: mirror.axelname.ru
+ * extras: mirror.yandex.ru
+ * updates: mirror.docker.ru
+Resolving Dependencies
+--> Running transaction check
+---> Package wget.x86_64 0:1.14-18.el7_6.1 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+=======================================================================================================================================
+ Package                     Arch                          Version                                   Repository                   Size
+=======================================================================================================================================
+Installing:
+ wget                        x86_64                        1.14-18.el7_6.1                           base                        547 k
+
+Transaction Summary
+=======================================================================================================================================
+Install  1 Package
+
+Total download size: 547 k
+Installed size: 2.0 M
+Downloading packages:
+
+wget-1.14-18.el7_6.1.x86_64.rpm                                                                                 | 547 kB  00:00:00     
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+
+  Installing : wget-1.14-18.el7_6.1.x86_64 [                                                                                     ] 1/1
+  Installing : wget-1.14-18.el7_6.1.x86_64 [##                                                                                   ] 1/1
+  Installing : wget-1.14-18.el7_6.1.x86_64 [#####                                                                                ] 1/1
+  Installing : wget-1.14-18.el7_6.1.x86_64 [#######                                                                              ] 1/1
+  Installing : wget-1.14-18.el7_6.1.x86_64 [##########                                                                           ] 1/1
+  Installing : wget-1.14-18.el7_6.1.x86_64 [#############                                                                        ] 1/1
+  Installing : wget-1.14-18.el7_6.1.x86_64 [################                                                                     ] 1/1
+  Installing : wget-1.14-18.el7_6.1.x86_64 [#################                                                                    ] 1/1
+  Installing : wget-1.14-18.el7_6.1.x86_64 [##################                                                                   ] 1/1
+  Installing : wget-1.14-18.el7_6.1.x86_64 [###################                                                                  ] 1/1
+  Installing : wget-1.14-18.el7_6.1.x86_64 [####################                                                                 ] 1/1
+  Installing : wget-1.14-18.el7_6.1.x86_64 [######################                                                               ] 1/1
+  Installing : wget-1.14-18.el7_6.1.x86_64 [#######################                                                              ] 1/1
+  Installing : wget-1.14-18.el7_6.1.x86_64 [########################                                                             ] 1/1
+  Installing : wget-1.14-18.el7_6.1.x86_64 [##########################                                                           ] 1/1
+  Installing : wget-1.14-18.el7_6.1.x86_64 [############################                                                         ] 1/1
+  Installing : wget-1.14-18.el7_6.1.x86_64 [##############################                                                       ] 1/1
+  Installing : wget-1.14-18.el7_6.1.x86_64 [#################################                                                    ] 1/1
+  Installing : wget-1.14-18.el7_6.1.x86_64 [##################################                                                   ] 1/1
+  Installing : wget-1.14-18.el7_6.1.x86_64 [####################################                                                 ] 1/1
+  Installing : wget-1.14-18.el7_6.1.x86_64 [######################################                                               ] 1/1
+  Installing : wget-1.14-18.el7_6.1.x86_64 [#######################################                                              ] 1/1
+  Installing : wget-1.14-18.el7_6.1.x86_64 [########################################                                             ] 1/1
+  Installing : wget-1.14-18.el7_6.1.x86_64 [###########################################                                          ] 1/1
+  Installing : wget-1.14-18.el7_6.1.x86_64 [############################################                                         ] 1/1
+  Installing : wget-1.14-18.el7_6.1.x86_64 [#############################################                                        ] 1/1
+  Installing : wget-1.14-18.el7_6.1.x86_64 [###############################################                                      ] 1/1
+  Installing : wget-1.14-18.el7_6.1.x86_64 [#################################################                                    ] 1/1
+  Installing : wget-1.14-18.el7_6.1.x86_64 [###################################################                                  ] 1/1
+  Installing : wget-1.14-18.el7_6.1.x86_64 [#####################################################                                ] 1/1
+  Installing : wget-1.14-18.el7_6.1.x86_64 [#######################################################                              ] 1/1
+  Installing : wget-1.14-18.el7_6.1.x86_64 [########################################################                             ] 1/1
+  Installing : wget-1.14-18.el7_6.1.x86_64 [###########################################################                          ] 1/1
+  Installing : wget-1.14-18.el7_6.1.x86_64 [##############################################################                       ] 1/1
+  Installing : wget-1.14-18.el7_6.1.x86_64 [#################################################################                    ] 1/1
+  Installing : wget-1.14-18.el7_6.1.x86_64 [####################################################################                 ] 1/1
+  Installing : wget-1.14-18.el7_6.1.x86_64 [#####################################################################                ] 1/1
+  Installing : wget-1.14-18.el7_6.1.x86_64 [########################################################################             ] 1/1
+  Installing : wget-1.14-18.el7_6.1.x86_64 [#########################################################################            ] 1/1
+  Installing : wget-1.14-18.el7_6.1.x86_64 [############################################################################         ] 1/1
+  Installing : wget-1.14-18.el7_6.1.x86_64 [#############################################################################        ] 1/1
+  Installing : wget-1.14-18.el7_6.1.x86_64 [##############################################################################       ] 1/1
+  Installing : wget-1.14-18.el7_6.1.x86_64 [###############################################################################      ] 1/1
+  Installing : wget-1.14-18.el7_6.1.x86_64 [##################################################################################   ] 1/1
+  Installing : wget-1.14-18.el7_6.1.x86_64 [###################################################################################  ] 1/1
+  Installing : wget-1.14-18.el7_6.1.x86_64 [#################################################################################### ] 1/1
+  Installing : wget-1.14-18.el7_6.1.x86_64                                                                                         1/1 
+
+  Verifying  : wget-1.14-18.el7_6.1.x86_64                                                                                         1/1 
+
+Installed:
+  wget.x86_64 0:1.14-18.el7_6.1                                                                                                        
+
+Complete!
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# yum install -y wgetwget http://www.gutenberg.org/ebooks/2600.txt.utf-8
+--2021-11-18 12:07:11--  http://www.gutenberg.org/ebooks/2600.txt.utf-8
+Resolving www.gutenberg.org (www.gutenberg.org)... 152.19.134.47, 2610:28:3090:3000:0:bad:cafe:47
+Connecting to www.gutenberg.org (www.gutenberg.org)|152.19.134.47|:80... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://www.gutenberg.org/ebooks/2600.txt.utf-8 [following]
+--2021-11-18 12:07:11--  https://www.gutenberg.org/ebooks/2600.txt.utf-8
+Connecting to www.gutenberg.org (www.gutenberg.org)|152.19.134.47|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://www.gutenberg.org/cache/epub/2600/pg2600.txt [following]
+--2021-11-18 12:07:12--  https://www.gutenberg.org/cache/epub/2600/pg2600.txt
+Reusing existing connection to www.gutenberg.org:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 1209374 (1.2M) [text/plain]
+Saving to: ‘2600.txt.utf-8’
+
+
+ 0% [                                                                                              ] 0           --.-K/s              
+ 1% [                                                                                              ] 12,157      58.9KB/s             
+ 3% [==>                                                                                           ] 45,001       108KB/s             
+ 5% [===>                                                                                          ] 61,385      73.6KB/s             
+18% [================>                                                                             ] 225,225      216KB/s             
+24% [=====================>                                                                        ] 290,761      232KB/s             
+30% [===========================>                                                                  ] 372,681      253KB/s             
+33% [==============================>                                                               ] 405,449      215KB/s             
+49% [=============================================>                                                ] 602,057      287KB/s             
+55% [==================================================>                                           ] 667,593      290KB/s             
+60% [=======================================================>                                      ] 733,129      292KB/s             
+67% [==============================================================>                               ] 815,049      300KB/s             
+72% [===================================================================>                          ] 880,585      301KB/s             
+78% [========================================================================>                     ] 946,121      302KB/s  eta 1s     
+85% [==============================================================================>               ] 1,028,041    307KB/s  eta 1s     
+91% [=====================================================================================>        ] 1,109,961    312KB/s  eta 1s     
+97% [==========================================================================================>   ] 1,175,497    313KB/s  eta 1s     
+100%[=============================================================================================>] 1,209,374    322KB/s   in 3.7s   
+
+2021-11-18 12:07:16 (322 KB/s) - ‘2600.txt.utf-8’ saved [1209374/1209374]
+
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# ll
+total 1312
+-rw-r--r--. 1 root    root    1209374 May  6  2016 2600.txt.utf-8
+-rw-rw-r--. 1 vagrant vagrant   69632 Nov 18 12:07 hw4.txt
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# file [K[K[K[K[Kllwget http://www.gutenberg.org/ebooks/2600.txt.utf-8 -O [K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# wget -O War_and_Peace.txt http://www.gutenberg.org/files/2600/2600-0.txt
+--2021-11-18 12:08:33--  http://www.gutenberg.org/files/2600/2600-0.txt
+Resolving www.gutenberg.org (www.gutenberg.org)... 152.19.134.47, 2610:28:3090:3000:0:bad:cafe:47
+Connecting to www.gutenberg.org (www.gutenberg.org)|152.19.134.47|:80... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://www.gutenberg.org/files/2600/2600-0.txt [following]
+--2021-11-18 12:08:33--  https://www.gutenberg.org/files/2600/2600-0.txt
+Connecting to www.gutenberg.org (www.gutenberg.org)|152.19.134.47|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 3359408 (3.2M) [text/plain]
+Saving to: ‘War_and_Peace.txt’
+
+
+ 0% [                                                                                              ] 0           --.-K/s              
+ 1% [>                                                                                             ] 39,398      96.4KB/s             
+ 2% [=>                                                                                            ] 88,550       143KB/s             
+ 4% [==>                                                                                           ] 137,702      167KB/s             
+ 7% [======>                                                                                       ] 252,390      176KB/s             
+10% [=========>                                                                                    ] 367,078      223KB/s             
+12% [==========>                                                                                   ] 424,422      230KB/s             
+14% [============>                                                                                 ] 498,150      230KB/s             
+16% [==============>                                                                               ] 563,686      229KB/s             
+18% [================>                                                                             ] 637,414      239KB/s             
+21% [==================>                                                                           ] 711,142      244KB/s             
+23% [=====================>                                                                        ] 793,062      249KB/s  eta 10s    
+24% [======================>                                                                       ] 825,830      230KB/s  eta 10s    
+27% [=========================>                                                                    ] 940,518      241KB/s  eta 10s    
+29% [==========================>                                                                   ] 997,862      243KB/s  eta 10s    
+31% [============================>                                                                 ] 1,071,590    246KB/s  eta 9s     
+33% [==============================>                                                               ] 1,137,126    255KB/s  eta 9s     
+35% [================================>                                                             ] 1,202,662    261KB/s  eta 9s     
+37% [==================================>                                                           ] 1,268,198    262KB/s  eta 9s     
+39% [====================================>                                                         ] 1,341,926    267KB/s  eta 9s     
+40% [====================================>                                                         ] 1,350,118    249KB/s  eta 8s     
+44% [========================================>                                                     ] 1,481,190    279KB/s  eta 8s     
+45% [=========================================>                                                    ] 1,530,342    258KB/s  eta 8s     
+47% [===========================================>                                                  ] 1,579,494    258KB/s  eta 8s     
+49% [=============================================>                                                ] 1,661,414    262KB/s  eta 8s     
+51% [===============================================>                                              ] 1,726,950    263KB/s  eta 6s     
+53% [=================================================>                                            ] 1,792,486    258KB/s  eta 6s     
+55% [==================================================>                                           ] 1,849,830    260KB/s  eta 6s     
+57% [====================================================>                                         ] 1,923,558    258KB/s  eta 6s     
+58% [======================================================>                                       ] 1,972,710    255KB/s  eta 6s     
+60% [========================================================>                                     ] 2,038,246    270KB/s  eta 5s     
+62% [=========================================================>                                    ] 2,103,782    258KB/s  eta 5s     
+65% [============================================================>                                 ] 2,185,702    263KB/s  eta 5s     
+67% [=============================================================>                                ] 2,251,238    261KB/s  eta 5s     
+68% [===============================================================>                              ] 2,316,774    255KB/s  eta 4s     
+71% [==================================================================>                           ] 2,398,694    258KB/s  eta 4s     
+73% [===================================================================>                          ] 2,464,230    255KB/s  eta 4s     
+75% [=====================================================================>                        ] 2,529,766    275KB/s  eta 4s     
+76% [=======================================================================>                      ] 2,578,918    255KB/s  eta 4s     
+79% [=========================================================================>                    ] 2,660,838    263KB/s  eta 3s     
+81% [===========================================================================>                  ] 2,742,758    269KB/s  eta 3s     
+84% [==============================================================================>               ] 2,824,678    273KB/s  eta 3s     
+86% [===============================================================================>              ] 2,890,214    271KB/s  eta 3s     
+88% [==================================================================================>           ] 2,972,134    275KB/s  eta 1s     
+88% [==================================================================================>           ] 2,988,518    260KB/s  eta 1s     
+93% [=======================================================================================>      ] 3,152,358    282KB/s  eta 1s     
+96% [=========================================================================================>    ] 3,234,278    284KB/s  eta 1s     
+98% [===========================================================================================>  ] 3,299,814    286KB/s  eta 0s     
+99% [============================================================================================> ] 3,348,966    265KB/s  eta 0s     
+100%[=============================================================================================>] 3,359,408    268KB/s   in 13s    
+
+2021-11-18 12:08:47 (257 KB/s) - ‘War_and_Peace.txt’ saved [3359408/3359408]
+
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# ll
+total 4596
+-rw-r--r--. 1 root    root    1209374 May  6  2016 2600.txt.utf-8
+-rw-rw-r--. 1 vagrant vagrant   77824 Nov 18 12:08 hw4.txt
+-rw-r--r--. 1 root    root    3359408 Jun 22 18:33 War_and_Peace.txt
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# rm -f 2600.txt.utf-8 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# cp War_and_Peace.txt /zfspool/gzip
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# cp War_and_Peace.txt /zfspool/gzip[K[K[K[Klzjb
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# cp War_and_Peace.txt /zfspool/lzjb[K[K4
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# cp War_and_Peace.txt /zfspool/lz4[K[K[Kzle
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# tree /zfspool/
+bash: tree: command not found
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# yum install -y tree
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: mirror.axelname.ru
+ * extras: mirror.yandex.ru
+ * updates: mirror.docker.ru
+Resolving Dependencies
+--> Running transaction check
+---> Package tree.x86_64 0:1.6.0-10.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+=======================================================================================================================================
+ Package                      Arch                           Version                                Repository                    Size
+=======================================================================================================================================
+Installing:
+ tree                         x86_64                         1.6.0-10.el7                           base                          46 k
+
+Transaction Summary
+=======================================================================================================================================
+Install  1 Package
+
+Total download size: 46 k
+Installed size: 87 k
+Downloading packages:
+
+tree-1.6.0-10.el7.x86_64.rpm                                                                                    |  46 kB  00:00:00     
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+
+  Installing : tree-1.6.0-10.el7.x86_64 [                                                                                        ] 1/1
+  Installing : tree-1.6.0-10.el7.x86_64 [############################################################                            ] 1/1
+  Installing : tree-1.6.0-10.el7.x86_64 [##############################################################################          ] 1/1
+  Installing : tree-1.6.0-10.el7.x86_64 [###################################################################################     ] 1/1
+  Installing : tree-1.6.0-10.el7.x86_64 [####################################################################################### ] 1/1
+  Installing : tree-1.6.0-10.el7.x86_64                                                                                            1/1 
+
+  Verifying  : tree-1.6.0-10.el7.x86_64                                                                                            1/1 
+
+Installed:
+  tree.x86_64 0:1.6.0-10.el7                                                                                                           
+
+Complete!
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# yum install -y tree[5Ptree /zfspool/
+/zfspool/
+├── gzip
+│   └── War_and_Peace.txt
+├── lz4
+│   └── War_and_Peace.txt
+├── lzjb
+│   └── War_and_Peace.txt
+└── zle
+    └── War_and_Peace.txt
+
+4 directories, 4 files
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# tree /zfspool/[C /zfspool/- /zfspool/s /zfspool/h /zfspool/
+/zfspool/
+├── [   3]  gzip
+│   └── [3.2M]  War_and_Peace.txt
+├── [   3]  lz4
+│   └── [3.2M]  War_and_Peace.txt
+├── [   3]  lzjb
+│   └── [3.2M]  War_and_Peace.txt
+└── [   3]  zle
+    └── [3.2M]  War_and_Peace.txt
+
+4 directories, 4 files
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# zfs list
+NAME           USED  AVAIL     REFER  MOUNTPOINT
+zfspool       9.09M  1.74G       28K  /zfspool
+zfspool/gzip  1.24M  1.74G     1.24M  /zfspool/gzip
+zfspool/lz4   2.02M  1.74G     2.02M  /zfspool/lz4
+zfspool/lzjb  2.41M  1.74G     2.41M  /zfspool/lzjb
+zfspool/zle   3.23M  1.74G     3.23M  /zfspool/zle
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# zfs listtree -sh /zfspool/[4P/zfspool/yum install -y tree[5Ptree /zfspool/yum install -y tree[5Ptree /zfspool/-sh /zfspool/[10Pzfs list[K
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# echo ""B"e"s"t" "C"o"m"p"r"e"s"s"i"o"n" "I"s" "g"z"i"p"
+Best Compression Is gzip
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
+]0;root@zfs:/home/vagrant[root@zfs vagrant]# 
