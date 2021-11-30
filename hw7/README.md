@@ -5,7 +5,9 @@
 ###   Цель войти в систему без пароля и сбросить пароль root ###
 ####   1.1 init=/bin/sh .
     Для выполнения пришлось поднять ВМ с Debian, использовался.Vagrantfile_debian10.
-    ![alt text](https://github.com/NamBob/Linux_HW_Otus/blob/main/hw7/screenshots/hw7-1-1.png)​.
+    <img src="screenshots/hw7-1-1.png"
+    
+    ![ ]()​.
     ![alt text](https://github.com/NamBob/Linux_HW_Otus/blob/main/hw7/screenshots/hw7-1-2.pdf)​.
     ![alt text](https://github.com/NamBob/Linux_HW_Otus/blob/main/hw7/screenshots/hw7-1-3.pdf)​.
     ![alt text](https://github.com/NamBob/Linux_HW_Otus/blob/main/hw7/screenshots/hw7-1-4.pdf)​.
