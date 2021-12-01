@@ -3,7 +3,8 @@
 ### Выполнить следующие задания и подготовить развёртывание результата выполнения с использованием Vagrant и Vagrant shell provisioner (или Ansible, на Ваше усмотрение):
 
 #### 1.Написать service, который будет раз в 30 секунд мониторить лог на предмет наличия ключевого слова (файл лога и ключевое слово должны задаваться в /etc/sysconfig).
-    Результат в файле hw8-1. Сделано по методичке. 
+Результат в файле hw8-1. Сделано по методичке. 
+
         root@hw8:tail -f /var/log/messages
         Dec  1 11:31:04 localhost vagrant: Wed Dec  1 11:31:04 UTC 2021: I found word, Master!
         Dec  1 11:31:47 localhost systemd: Starting My watchlog service...
@@ -28,7 +29,8 @@
 
 
 #### 2. Из репозитория epel установить spawn-fcgi и переписать init-скрипт на unit-файл (имя service должно называться так же: spawn-fcgi).
-    Результат в фале hw8-2. Сделано по методичке.
+Результат в фале hw8-2. Сделано по методичке.
+
         root@hw8:~^G[root@hw8 ~]# systemctl start spawn-fcgi
         root@hw8:~^G[root@hw8 ~]# systemctl status spawn-fcgi
             ^[[1;32mâ<97><8f>^[[0m spawn-fcgi.service - Spawn-fcgi startup service by Otus
@@ -37,12 +39,13 @@
             Main PID: 25429 (php-cgi)
   
 
-Dec 01 11:42:11 hw8 systemd[1]: Started Spawn-fcgi startup servi....
-Hint: Some lines were ellipsized, use -l to show in full.
+        Dec 01 11:42:11 hw8 systemd[1]: Started Spawn-fcgi startup servi....
+        Hint: Some lines were ellipsized, use -l to show in full.
 
 #### 3. Дополнить unit-файл httpd (он же apache) возможностью запустить несколько инстансов сервера с разными конфигурационными файлами.
-    Результат в фале hw8-3.
-    из интересного, нужно в selinux разрешать порты для httpd, иначе сервисы не стартуют.
+Результат в фале hw8-3.
+Из интересного, нужно в selinux разрешать порты для httpd, иначе сервисы не стартуют.
+
         [root@hw8 ~]# semanage port -l | grep http
         http_cache_port_t              tcp      8080, 8118, 8123, 10001-10010
         http_cache_port_t              udp      3130
@@ -102,9 +105,9 @@ Hint: Some lines were ellipsized, use -l to show in full.
             Dec 01 13:56:23 hw8 systemd[1]: Started The Apache HTTP Server.
             Hint: Some lines were ellipsized, use -l to show in full.
         [root@hw8 ~]# ss -tunlp | grep httpd
-        tcp    LISTEN     0      128    [::]:8899               [::]:*                   users:(("httpd",pid=25583,fd=4),("httpd",pid=25582,fd=4),("httpd",pid=25581,fd=4),("httpd",pid=25580,fd=4),("httpd",pid=25579,fd=4),("httpd",pid=25578,fd=4),("httpd",pid=25577,fd=4))
-        tcp    LISTEN     0      128    [::]:80                 [::]:*                   users:(("httpd",pid=25071,fd=4),("httpd",pid=25070,fd=4),("httpd",pid=25069,fd=4),("httpd",pid=25068,fd=4),("httpd",pid=25067,fd=4),("httpd",pid=25066,fd=4),("httpd",pid=25065,fd=4))
-        tcp    LISTEN     0      128    [::]:8888               [::]:*                   users:(("httpd",pid=25570,fd=4),("httpd",pid=25569,fd=4),("httpd",pid=25568,fd=4),("httpd",pid=25567,fd=4),("httpd",pid=25566,fd=4),("httpd",pid=25565,fd=4),("httpd",pid=25564,fd=4))
+    tcp    LISTEN     0      128    [::]:8899               [::]:*                   users:(("httpd",pid=25583,fd=4),("httpd",pid=25582,fd=4),("httpd",pid=25581,fd=4),("httpd",pid=25580,fd=4),("httpd",pid=25579,fd=4),("httpd",pid=25578,fd=4),("httpd",pid=25577,fd=4))
+    tcp    LISTEN     0      128    [::]:80                 [::]:*                   users:(("httpd",pid=25071,fd=4),("httpd",pid=25070,fd=4),("httpd",pid=25069,fd=4),("httpd",pid=25068,fd=4),("httpd",pid=25067,fd=4),("httpd",pid=25066,fd=4),("httpd",pid=25065,fd=4))
+    tcp    LISTEN     0      128    [::]:8888               [::]:*                   users:(("httpd",pid=25570,fd=4),("httpd",pid=25569,fd=4),("httpd",pid=25568,fd=4),("httpd",pid=25567,fd=4),("httpd",pid=25566,fd=4),("httpd",pid=25565,fd=4),("httpd",pid=25564,fd=4))
 
 #### 4*. Скачать демо-версию Atlassian Jira и переписать основной скрипт запуска на unit-файл.
-    Не выполнялось.
+Не выполнялось.
