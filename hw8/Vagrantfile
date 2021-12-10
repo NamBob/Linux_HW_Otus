@@ -45,8 +45,11 @@ Vagrant.configure("2") do |config|
  	      box.vm.provision "shell", inline: <<-SHELL
 	      mkdir -p ~root/.ssh
 	      cp ~vagrant/.ssh/auth* ~root/.ssh
-	      yum install -y vim wget tree yum-utils
-  	  SHELL
+#	      yum install -y vim wget tree yum-utils
+#	      timedatectl set-timezone Europe/Moscow	
+  	    SHELL
+        box.vm.provision "file", source: "./config/", destination: "/home/vagrant/"
+        box.vm.provision "shell", path: "hw8_1.sh"
     end
   end
 end
