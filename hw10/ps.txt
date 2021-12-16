@@ -1,0 +1,329 @@
+PID TTy STAT TIME COMMAND
+1    	 S 00:03 /sbin/initsplash
+10    	 S 00:03 
+101    	 S 00:03 
+103    	 I 00:03 
+1030    	 S 00:03 /usr/bin/vmware-usbarbitrator
+105    	 S 00:03 
+1052    	 S 00:03 /usr/sbin/ModemManager
+1055    	 S 00:03 /usr/lib/bolt/boltd
+1057    	 S 00:03 /usr/libexec/colord
+1059    	 S 00:03 /usr/sbin/cups-browsed
+106    	 S 00:03 
+108    	 I 00:03 
+1083    	 S 00:03 /usr/bin/anydesk--service
+109    	 S 00:03 
+11    	 S 00:03 
+110    	 I 00:03 
+1100    	 S 00:03 /usr/sbin/gdm3
+1101    	 S 00:03 /usr/sbin/cupsd-l
+111    	 I 00:03 
+114    	 I 00:03 
+1140    	 S 00:03 /usr/bin/python3/usr/share/unattended-upgrades/unattended-upgrade-shutdown--wait-for-signal
+115    	 I 00:03 
+11707    	 Web 00:03 /usr/lib/firefox/firefox-contentproc-childID48-isForBrowser-prefsLen8771-prefMapSize248981-jsInitLen278884-parentBuildID20211129150630-appDir/usr/lib/firefox/browser4351truetab
+1172    	 S 00:03 /usr/libexec/rtkit-daemon
+12    	 S 00:03 
+124    	 I 00:03 
+1268    	 S 00:03 /usr/lib/upower/upowerd
+127    	 I 00:03 
+13    	 I 00:03 
+135    	 I 00:03 
+14    	 S 00:03 
+15    	 S 00:03 
+157    	 I 00:03 
+15794    	 S 00:03 /snap/keepassxc/1522/usr/bin/keepassxc-stylefusion
+16    	 S 00:03 
+17    	 S 00:03 
+18    	 S 00:03 
+1840    	 S 00:03 /usr/bin/whoopsie-f
+18404    	 Web 00:03 /usr/lib/firefox/firefox-contentproc-childID109-isForBrowser-prefsLen9185-prefMapSize248981-jsInitLen278884-parentBuildID20211129150630-appDir/usr/lib/firefox/browser4351truetab
+1845    	 S 00:03 /usr/sbin/kerneloops--test
+185    	 I 00:03 
+1850    	 S 00:03 /usr/sbin/kerneloops
+186    	 I 00:03 
+1863    	 I 00:03 
+187    	 I 00:03 
+1876    	 S 00:03 
+19    	 S 00:03 
+193    	 I 00:03 
+19748    	 S 00:03 /usr/libexec/gvfsd-network--spawner:1.3/org/gtk/gvfs/exec_spaw/1
+19766    	 S 00:03 /usr/libexec/gvfsd-dnssd--spawner:1.3/org/gtk/gvfs/exec_spaw/3
+2    	 S 00:03 
+20    	 S 00:03 
+216    	 S 00:03 
+217    	 I 00:03 
+22    	 I 00:03 
+23    	 S 00:03 
+23598    	 Web 00:03 /usr/lib/firefox/firefox-contentproc-childID129-isForBrowser-prefsLen9185-prefMapSize248981-jsInitLen278884-parentBuildID20211129150630-appDir/usr/lib/firefox/browser4351truetab
+24    	 S 00:03 
+25    	 S 00:03 
+26    	 S 00:03 
+26599    	 Web 00:03 /usr/lib/firefox/firefox-contentproc-childID137-isForBrowser-prefsLen9185-prefMapSize248981-jsInitLen278884-parentBuildID20211129150630-appDir/usr/lib/firefox/browser4351truetab
+266    	 S 00:03 /lib/systemd/systemd-journald
+26694    	 Web 00:03 /usr/lib/firefox/firefox-contentproc-childID139-isForBrowser-prefsLen9185-prefMapSize248981-jsInitLen278884-parentBuildID20211129150630-appDir/usr/lib/firefox/browser4351truetab
+2751    	 S 00:03 /usr/lib/postfix/sbin/master-w
+2756    	 S 00:03 gdm-session-worker [pam/gdm-password]
+2764    	 S 00:03 /lib/systemd/systemd--user
+2765    	 S 00:03 (sd-pam)
+2770    	 S 00:03 /usr/bin/pulseaudio--daemonize=no--log-target=journal
+2772    	 S 00:03 /usr/libexec/tracker-miner-fs
+2775    	 S 00:03 /usr/bin/dbus-daemon--session--address=systemd:--nofork--nopidfile--systemd-activation--syslog-only
+279    	 I 00:03 
+2791    	 S 00:03 /usr/libexec/gvfsd
+2793    	 S 00:03 /usr/bin/gnome-keyring-daemon--daemonize--login
+28    	 I 00:03 
+280    	 I 00:03 
+2800    	 S 00:03 /usr/libexec/gvfsd-fuse/run/user/1000/gvfs-f-obig_writes
+2807    	 S 00:03 /usr/libexec/gvfs-udisks2-volume-monitor
+2815    	 S 00:03 /usr/libexec/gvfs-goa-volume-monitor
+2819    	 S 00:03 /usr/libexec/goa-daemon
+2827    	 S 00:03 /usr/libexec/goa-identity-service
+2835    	 S 00:03 
+2836    	 S 00:03 /usr/libexec/gvfs-afc-volume-monitor
+2841    	 S 00:03 /usr/libexec/gvfs-gphoto2-volume-monitor
+2845    	 S 00:03 /usr/libexec/gvfs-mtp-volume-monitor
+2863    	 S 00:03 /usr/lib/gdm3/gdm-x-session--run-scriptenv GNOME_SHELL_SESSION_MODE=ubuntu /usr/bin/gnome-session --systemd --session=ubuntu
+2865    	 S 00:03 /usr/lib/xorg/Xorgvt2-displayfd3-auth/run/user/1000/gdm/Xauthority-backgroundnone-noreset-keeptty-verbose3
+2883    	 S 00:03 /usr/libexec/gnome-session-binary--systemd--systemd--session=ubuntu
+2897    	 S 00:03 /usr/bin/gnome-keyring-daemon--start--foreground--components=secrets
+29    	 S 00:03 
+2957    	 S 00:03 /usr/bin/ssh-agent/usr/bin/im-launchenvGNOME_SHELL_SESSION_MODE=ubuntu/usr/bin/gnome-session--systemd--session=ubuntu
+2978    	 S 00:03 /usr/libexec/at-spi-bus-launcher
+298    	 S 00:03 /lib/systemd/systemd-udevd
+2983    	 S 00:03 /usr/bin/dbus-daemon--config-file=/usr/share/defaults/at-spi2/accessibility.conf--nofork--print-address3
+2993    	 S 00:03 /usr/libexec/gnome-session-ctl--monitor
+29938    	 S 00:03 /usr/bin/nautilus--gapplication-service
+2999    	 S 00:03 /usr/libexec/gnome-session-binary--systemd-service--session=ubuntu
+3    	 I 00:03 
+30    	 S 00:03 
+3013    	 S 00:03 /usr/bin/gnome-shell
+3036    	 S 00:03 ibus-daemon--paneldisable--xim
+3040    	 S 00:03 /usr/libexec/ibus-dconf
+3041    	 S 00:03 /usr/libexec/ibus-extension-gtk3
+3043    	 S 00:03 /usr/libexec/ibus-x11--kill-daemon
+3045    	 S 00:03 /usr/libexec/ibus-portal
+3058    	 S 00:03 /usr/libexec/at-spi2-registryd--use-gnome-session
+306    	 S 00:03 
+3062    	 S 00:03 /usr/libexec/xdg-permission-store
+3067    	 S 00:03 /usr/libexec/gnome-shell-calendar-server
+3073    	 S 00:03 /usr/libexec/evolution-source-registry
+3081    	 S 00:03 /usr/libexec/dconf-service
+3084    	 S 00:03 /usr/libexec/gvfsd-metadata
+3089    	 S 00:03 /usr/libexec/evolution-calendar-factory
+3098    	 S 00:03 /usr/libexec/evolution-addressbook-factory
+31    	 S 00:03 
+3115    	 S 00:03 /usr/bin/gjs/usr/share/gnome-shell/org.gnome.Shell.Notifications
+3123    	 S 00:03 /usr/libexec/gvfsd-trash--spawner:1.3/org/gtk/gvfs/exec_spaw/0
+3137    	 S 00:03 /usr/libexec/gsd-a11y-settings
+3138    	 S 00:03 /usr/libexec/gsd-color
+3139    	 S 00:03 /usr/libexec/gsd-datetime
+3140    	 S 00:03 /usr/libexec/gsd-housekeeping
+3143    	 S 00:03 /usr/libexec/gsd-keyboard
+3144    	 S 00:03 /usr/libexec/gsd-media-keys
+3147    	 S 00:03 /usr/libexec/gsd-power
+3150    	 S 00:03 /usr/libexec/gsd-print-notifications
+3154    	 S 00:03 /usr/libexec/gsd-rfkill
+3155    	 S 00:03 /usr/libexec/gsd-screensaver-proxy
+3156    	 S 00:03 /usr/libexec/gsd-sharing
+3158    	 S 00:03 /usr/libexec/gsd-smartcard
+3160    	 S 00:03 /usr/libexec/gsd-sound
+3165    	 S 00:03 /usr/libexec/gsd-disk-utility-notify
+3166    	 S 00:03 /usr/libexec/gsd-usb-protection
+3169    	 S 00:03 /usr/libexec/gsd-wacom
+3173    	 S 00:03 /usr/libexec/gsd-wwan
+3185    	 S 00:03 /usr/libexec/gsd-xsettings
+3189    	 S 00:03 /usr/lib/x86_64-linux-gnu/libexec/kdeconnectd
+32    	 S 00:03 
+3209    	 S 00:03 /usr/libexec/gsd-printer
+3211    	 S 00:03 /usr/bin/anydesk--tray
+3213    	 S 00:03 /usr/libexec/evolution-data-server/evolution-alarm-notify
+323    	 S 00:03 
+324    	 S 00:03 
+32504    	 S 00:03 /usr/lib/speech-dispatcher-modules/sd_dummy/etc/speech-dispatcher/modules/dummy.conf
+32507    	 S 00:03 /usr/lib/speech-dispatcher-modules/sd_espeak-ng/etc/speech-dispatcher/modules/espeak-ng.conf
+32513    	 S 00:03 /usr/lib/speech-dispatcher-modules/sd_generic/etc/speech-dispatcher/modules/mary-generic.conf
+32516    	 S 00:03 /usr/bin/speech-dispatcher--spawn--communication-methodunix_socket--socket-path/run/user/1000/speech-dispatcher/speechd.sock
+3265    	 S 00:03 /snap/snap-store/558/usr/bin/snap-store--gapplication-service
+3291    	 S 00:03 /usr/libexec/xdg-document-portal
+3317    	 S 00:03 /usr/libexec/ibus-engine-simple
+335    	 S 00:03 
+34    	 I 00:03 
+3409    	 S 00:03 /usr/libexec/xdg-desktop-portal
+3413    	 S 00:03 /usr/libexec/xdg-desktop-portal-gtk
+3430    	 S 00:03 /usr/libexec/fwupd/fwupd
+35    	 S 00:03 
+36    	 I 00:03 
+364    	 S 00:03 
+365    	 S 00:03 
+366    	 S 00:03 
+37    	 I 00:03 
+38    	 S 00:03 
+380    	 S 00:03 
+38027    	 S 00:03 
+38407    	 S 00:03 qmgr-l-tunix-u
+389    	 I 00:03 
+39    	 S 00:03 
+390    	 I 00:03 
+395    	 S 00:03 
+4    	 I 00:03 
+40    	 S 00:03 
+400    	 S 00:03 
+404    	 S 00:03 
+405    	 S 00:03 
+407    	 S 00:03 
+41    	 I 00:03 
+412    	 S 00:03 
+414    	 S 00:03 
+419    	 S 00:03 
+42    	 S 00:03 
+420    	 S 00:03 
+421    	 S 00:03 
+422    	 S 00:03 
+423    	 S 00:03 
+425    	 I 00:03 
+42966    	 S 00:03 /snap/remmina/5114/usr/bin/remmina
+43    	 S 00:03 
+43247    	 Web 00:03 /usr/lib/firefox/firefox-contentproc-childID348-isForBrowser-prefsLen9524-prefMapSize248981-jsInitLen278884-parentBuildID20211129150630-appDir/usr/lib/firefox/browser4351truetab
+43359    	 Web 00:03 /usr/lib/firefox/firefox-contentproc-childID349-isForBrowser-prefsLen9524-prefMapSize248981-jsInitLen278884-parentBuildID20211129150630-appDir/usr/lib/firefox/browser4351truetab
+4351    	 S 00:03 /usr/lib/firefox/firefox-new-window
+44    	 S 00:03 
+441    	 S 00:03 
+4440    	 Process) 00:03 /usr/lib/firefox/firefox-contentproc-parentBuildID20211129150630-prefsLen1-prefMapSize248981-appDir/usr/lib/firefox/browser4351truesocket
+4473    	 Cont) 00:03 /usr/lib/firefox/firefox-contentproc-childID1-isForBrowser-prefsLen139-prefMapSize248981-jsInitLen278884-parentBuildID20211129150630-appDir/usr/lib/firefox/browser4351truetab
+44861    	 S 00:03 /snap/notepadqq/855/usr/local/lib/notepadqq/notepadqq-bin
+4512    	 S 00:03 /usr/lib/firefox/firefox-contentproc-childID2-isForBrowser-prefsLen4826-prefMapSize248981-jsInitLen278884-parentBuildID20211129150630-appDir/usr/lib/firefox/browser4351truetab
+45360    	 Web 00:03 /usr/lib/firefox/firefox-contentproc-childID378-isForBrowser-prefsLen9524-prefMapSize248981-jsInitLen278884-parentBuildID20211129150630-appDir/usr/lib/firefox/browser4351truetab
+4537    	 S 00:03 /snap/thunderbird/173/thunderbird-bin
+459    	 S 00:03 
+460    	 S 00:03 
+46420    	 S 00:03 /usr/bin/python3/usr/bin/x-terminal-emulator
+46429    	 S 00:03 /bin/bash
+46790    	 S 00:03 /snap/code/84/usr/share/code/code --no-sandbox --force-user-env --unity-launch
+46792    	 S 00:03 /snap/code/84/usr/share/code/code --type=zygote --no-zygote-sandbox --no-sandbox
+46793    	 S 00:03 /snap/code/84/usr/share/code/code --type=zygote --no-sandbox
+46828    	 R 00:03 /snap/code/84/usr/share/code/code --type=gpu-process --field-trial-handle=8294649893085053053,2713265611061353288,131072 --disable-features=CookiesWithoutSameSiteMustBeSecure,SameSiteByDefaultCookies,SpareRendererForSitePerProcess --disable-color-correct-rendering --no-sandbox --enable-crash-reporter=f7bbbffe-cb91-4980-be6f-a1bf751bdd59,no_channel --global-crash-keys=f7bbbffe-cb91-4980-be6f-a1bf751bdd59,no_channel,_companyName=Microsoft,_productName=VSCode,_version=1.63.1 --user-data-dir=/home/nbt/.config/Code --gpu-preferences=UAAAAAAAAAAgAAAQAAAAAAAAAAAAAAAAAABgAAAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAA= --use-gl=swiftshader-webgl --shared-files
+46838    	 S 00:03 /snap/code/84/usr/share/code/code --type=utility --utility-sub-type=network.mojom.NetworkService --field-trial-handle=8294649893085053053,2713265611061353288,131072 --disable-features=CookiesWithoutSameSiteMustBeSecure,SameSiteByDefaultCookies,SpareRendererForSitePerProcess --lang=en-US --service-sandbox-type=none --no-sandbox --enable-crash-reporter=f7bbbffe-cb91-4980-be6f-a1bf751bdd59,no_channel --global-crash-keys=f7bbbffe-cb91-4980-be6f-a1bf751bdd59,no_channel,_companyName=Microsoft,_productName=VSCode,_version=1.63.1 --user-data-dir=/home/nbt/.config/Code --standard-schemes=vscode-webview,vscode-file --secure-schemes=vscode-webview,vscode-file --bypasscsp-schemes --cors-schemes=vscode-webview,vscode-file --fetch-schemes=vscode-webview,vscode-file --service-worker-schemes=vscode-webview --streaming-schemes --shared-files=v8_context_snapshot_data:100
+46850    	 S 00:03 /snap/code/84/usr/share/code/code --type=renderer --disable-color-correct-rendering --no-sandbox --field-trial-handle=8294649893085053053,2713265611061353288,131072 --disable-features=CookiesWithoutSameSiteMustBeSecure,SameSiteByDefaultCookies,SpareRendererForSitePerProcess --disable-gpu-compositing --lang=en-US --enable-crash-reporter=f7bbbffe-cb91-4980-be6f-a1bf751bdd59,no_channel --global-crash-keys=f7bbbffe-cb91-4980-be6f-a1bf751bdd59,no_channel,_companyName=Microsoft,_productName=VSCode,_version=1.63.1 --user-data-dir=/home/nbt/.config/Code --standard-schemes=vscode-webview,vscode-file --secure-schemes=vscode-webview,vscode-file --bypasscsp-schemes --cors-schemes=vscode-webview,vscode-file --fetch-schemes=vscode-webview,vscode-file --service-worker-schemes=vscode-webview --streaming-schemes --app-path=/snap/code/84/usr/share/code/resources/app --no-sandbox --no-zygote --num-raster-threads=2 --enable-main-frame-before-activation --renderer-client-id=6 --no-v8-untrusted-code-mitigations --shared-files=v8_context_snapshot_data:100 --vscode-window-config=vscode:cfa74f0c-e481-48d5-a940-83a03af3bc90
+46880    	 S 00:03 /snap/code/84/usr/share/code/code --type=renderer --disable-color-correct-rendering --no-sandbox --field-trial-handle=8294649893085053053,2713265611061353288,131072 --disable-features=CookiesWithoutSameSiteMustBeSecure,SameSiteByDefaultCookies,SpareRendererForSitePerProcess --disable-gpu-compositing --lang=en-US --enable-crash-reporter=f7bbbffe-cb91-4980-be6f-a1bf751bdd59,no_channel --global-crash-keys=f7bbbffe-cb91-4980-be6f-a1bf751bdd59,no_channel,_companyName=Microsoft,_productName=VSCode,_version=1.63.1 --user-data-dir=/home/nbt/.config/Code --standard-schemes=vscode-webview,vscode-file --secure-schemes=vscode-webview,vscode-file --bypasscsp-schemes --cors-schemes=vscode-webview,vscode-file --fetch-schemes=vscode-webview,vscode-file --service-worker-schemes=vscode-webview --streaming-schemes --app-path=/snap/code/84/usr/share/code/resources/app --no-sandbox --no-zygote --node-integration-in-worker --num-raster-threads=2 --enable-main-frame-before-activation --renderer-client-id=8 --no-v8-untrusted-code-mitigations --shared-files=v8_context_snapshot_data:100 --vscode-window-config=vscode:d538fe1c-3c8e-41ab-8702-073acd49252a --vscode-window-kind=shared-process
+46897    	 S 00:03 /snap/code/84/usr/share/code/code--ms-enable-electron-run-as-node--inspect-port=0/snap/code/84/usr/share/code/resources/app/out/bootstrap-fork--type=extensionHost--skipWorkspaceStorageLock
+46913    	 S 00:03 /snap/code/84/usr/share/code/code--ms-enable-electron-run-as-node/snap/code/84/usr/share/code/resources/app/out/bootstrap-fork--type=ptyHost
+46937    	 S 00:03 /snap/code/84/usr/share/code/code--ms-enable-electron-run-as-node/snap/code/84/usr/share/code/resources/app/out/bootstrap-fork--type=watcherServiceParcelSharedProcess
+46945    	 S 00:03 /usr/bin/bash
+46966    	 S 00:03 /snap/code/84/usr/share/code/code--ms-enable-electron-run-as-node/home/nbt/.vscode/extensions/ckolkman.vscode-postgres-1.1.19/out/language/server.js--node-ipc--clientProcessId=46897
+478    	 S 00:03 
+48258    	 Web 00:03 /usr/lib/firefox/firefox-contentproc-childID413-isForBrowser-prefsLen9523-prefMapSize248981-jsInitLen278884-parentBuildID20211129150630-appDir/usr/lib/firefox/browser4351truetab
+483    	 S 00:03 
+48303    	 Web 00:03 /usr/lib/firefox/firefox-contentproc-childID414-isForBrowser-prefsLen9523-prefMapSize248981-jsInitLen278884-parentBuildID20211129150630-appDir/usr/lib/firefox/browser4351truetab
+484    	 S 00:03 
+50583    	 S 00:03 /bin/bash
+51034    	 Web 00:03 /usr/lib/firefox/firefox-contentproc-childID430-isForBrowser-prefsLen9523-prefMapSize248981-jsInitLen278884-parentBuildID20211129150630-appDir/usr/lib/firefox/browser4351truetab
+51128    	 Web 00:03 /usr/lib/firefox/firefox-contentproc-childID432-isForBrowser-prefsLen9523-prefMapSize248981-jsInitLen278884-parentBuildID20211129150630-appDir/usr/lib/firefox/browser4351truetab
+51131    	 Web 00:03 /usr/lib/firefox/firefox-contentproc-childID433-isForBrowser-prefsLen9523-prefMapSize248981-jsInitLen278884-parentBuildID20211129150630-appDir/usr/lib/firefox/browser4351truetab
+51190    	 Web 00:03 /usr/lib/firefox/firefox-contentproc-childID434-isForBrowser-prefsLen9523-prefMapSize248981-jsInitLen278884-parentBuildID20211129150630-appDir/usr/lib/firefox/browser4351truetab
+51255    	 Web 00:03 /usr/lib/firefox/firefox-contentproc-childID436-isForBrowser-prefsLen9523-prefMapSize248981-jsInitLen278884-parentBuildID20211129150630-appDir/usr/lib/firefox/browser4351truetab
+51390    	 Web 00:03 /usr/lib/firefox/firefox-contentproc-childID438-isForBrowser-prefsLen9523-prefMapSize248981-jsInitLen278884-parentBuildID20211129150630-appDir/usr/lib/firefox/browser4351truetab
+51474    	 Web 00:03 /usr/lib/firefox/firefox-contentproc-childID440-isForBrowser-prefsLen9523-prefMapSize248981-jsInitLen278884-parentBuildID20211129150630-appDir/usr/lib/firefox/browser4351truetab
+51550    	 Web 00:03 /usr/lib/firefox/firefox-contentproc-childID443-isForBrowser-prefsLen9523-prefMapSize248981-jsInitLen278884-parentBuildID20211129150630-appDir/usr/lib/firefox/browser4351truetab
+52068    	 Web 00:03 /usr/lib/firefox/firefox-contentproc-childID450-isForBrowser-prefsLen9523-prefMapSize248981-jsInitLen278884-parentBuildID20211129150630-appDir/usr/lib/firefox/browser4351truetab
+52112    	 Web 00:03 /usr/lib/firefox/firefox-contentproc-childID451-isForBrowser-prefsLen9523-prefMapSize248981-jsInitLen278884-parentBuildID20211129150630-appDir/usr/lib/firefox/browser4351truetab
+52168    	 Web 00:03 /usr/lib/firefox/firefox-contentproc-childID452-isForBrowser-prefsLen9523-prefMapSize248981-jsInitLen278884-parentBuildID20211129150630-appDir/usr/lib/firefox/browser4351truetab
+52214    	 Web 00:03 /usr/lib/firefox/firefox-contentproc-childID454-isForBrowser-prefsLen9523-prefMapSize248981-jsInitLen278884-parentBuildID20211129150630-appDir/usr/lib/firefox/browser4351truetab
+52241    	 Web 00:03 /usr/lib/firefox/firefox-contentproc-childID455-isForBrowser-prefsLen9523-prefMapSize248981-jsInitLen278884-parentBuildID20211129150630-appDir/usr/lib/firefox/browser4351truetab
+52461    	 S 00:03 /bin/bash
+538    	 S 00:03 
+55292    	 Web 00:03 /usr/lib/firefox/firefox-contentproc-childID479-isForBrowser-prefsLen9523-prefMapSize248981-jsInitLen278884-parentBuildID20211129150630-appDir/usr/lib/firefox/browser4351truetab
+55323    	 Web 00:03 /usr/lib/firefox/firefox-contentproc-childID480-isForBrowser-prefsLen9523-prefMapSize248981-jsInitLen278884-parentBuildID20211129150630-appDir/usr/lib/firefox/browser4351truetab
+55368    	 Web 00:03 /usr/lib/firefox/firefox-contentproc-childID481-isForBrowser-prefsLen9523-prefMapSize248981-jsInitLen278884-parentBuildID20211129150630-appDir/usr/lib/firefox/browser4351truetab
+55641    	 S 00:03 /snap/code/84/usr/share/code/code --type=renderer --disable-color-correct-rendering --no-sandbox --field-trial-handle=8294649893085053053,2713265611061353288,131072 --disable-features=CookiesWithoutSameSiteMustBeSecure,SameSiteByDefaultCookies,SpareRendererForSitePerProcess --disable-gpu-compositing --lang=en-US --enable-crash-reporter=f7bbbffe-cb91-4980-be6f-a1bf751bdd59,no_channel --global-crash-keys=f7bbbffe-cb91-4980-be6f-a1bf751bdd59,no_channel,_companyName=Microsoft,_productName=VSCode,_version=1.63.1 --user-data-dir=/home/nbt/.config/Code --standard-schemes=vscode-webview,vscode-file --secure-schemes=vscode-webview,vscode-file --bypasscsp-schemes --cors-schemes=vscode-webview,vscode-file --fetch-schemes=vscode-webview,vscode-file --service-worker-schemes=vscode-webview --streaming-schemes --app-path=/snap/code/84/usr/share/code/resources/app --enable-sandbox --num-raster-threads=2 --enable-main-frame-before-activation --renderer-client-id=19 --no-v8-untrusted-code-mitigations --shared-files=v8_context_snapshot_data:100 --vscode-window-config=vscode:cfa74f0c-e481-48d5-a940-83a03af3bc90
+55905    	 Web 00:03 /usr/lib/firefox/firefox-contentproc-childID483-isForBrowser-prefsLen9523-prefMapSize248981-jsInitLen278884-parentBuildID20211129150630-appDir/usr/lib/firefox/browser4351truetab
+55934    	 Web 00:03 /usr/lib/firefox/firefox-contentproc-childID484-isForBrowser-prefsLen9523-prefMapSize248981-jsInitLen278884-parentBuildID20211129150630-appDir/usr/lib/firefox/browser4351truetab
+56266    	 Web 00:03 /usr/lib/firefox/firefox-contentproc-childID485-isForBrowser-prefsLen9523-prefMapSize248981-jsInitLen278884-parentBuildID20211129150630-appDir/usr/lib/firefox/browser4351truetab
+56304    	 Web 00:03 /usr/lib/firefox/firefox-contentproc-childID486-isForBrowser-prefsLen9523-prefMapSize248981-jsInitLen278884-parentBuildID20211129150630-appDir/usr/lib/firefox/browser4351truetab
+5642    	 S 00:03 telegram-desktop--
+566    	 S 00:03 
+567    	 S 00:03 
+56763    	 Web 00:03 /usr/lib/firefox/firefox-contentproc-childID488-isForBrowser-prefsLen9523-prefMapSize248981-jsInitLen278884-parentBuildID20211129150630-appDir/usr/lib/firefox/browser4351truetab
+56795    	 Web 00:03 /usr/lib/firefox/firefox-contentproc-childID489-isForBrowser-prefsLen9523-prefMapSize248981-jsInitLen278884-parentBuildID20211129150630-appDir/usr/lib/firefox/browser4351truetab
+568    	 S 00:03 
+569    	 S 00:03 
+5690    	 Content) 00:03 /snap/thunderbird/173/thunderbird-bin-contentproc-childID1-isForBrowser-prefsLen1-prefMapSize244102-jsInit285716-parentBuildID20211203141721-appdir/snap/thunderbird/1734537truetab
+570    	 S 00:03 
+571    	 S 00:03 
+572    	 S 00:03 
+58314    	 Web 00:03 /usr/lib/firefox/firefox-contentproc-childID493-isForBrowser-prefsLen9523-prefMapSize248981-jsInitLen278884-parentBuildID20211129150630-appDir/usr/lib/firefox/browser4351truetab
+588    	 S 00:03 
+59575    	 Web 00:03 /usr/lib/firefox/firefox-contentproc-childID496-isForBrowser-prefsLen9523-prefMapSize248981-jsInitLen278884-parentBuildID20211129150630-appDir/usr/lib/firefox/browser4351truetab
+59623    	 Web 00:03 /usr/lib/firefox/firefox-contentproc-childID497-isForBrowser-prefsLen9523-prefMapSize248981-jsInitLen278884-parentBuildID20211129150630-appDir/usr/lib/firefox/browser4351truetab
+6    	 I 00:03 
+60787    	 Web 00:03 /usr/lib/firefox/firefox-contentproc-childID500-isForBrowser-prefsLen9523-prefMapSize248981-jsInitLen278884-parentBuildID20211129150630-appDir/usr/lib/firefox/browser4351truetab
+60952    	 D 00:03 
+61548    	 I 00:03 
+61776    	 Web 00:03 /usr/lib/firefox/firefox-contentproc-childID503-isForBrowser-prefsLen9523-prefMapSize248981-jsInitLen278884-parentBuildID20211129150630-appDir/usr/lib/firefox/browser4351truetab
+61875    	 Web 00:03 /usr/lib/firefox/firefox-contentproc-childID504-isForBrowser-prefsLen9523-prefMapSize248981-jsInitLen278884-parentBuildID20211129150630-appDir/usr/lib/firefox/browser4351truetab
+6591    	 S 00:03 update-notifier
+661    	 S 00:03 
+6672    	 Process) 00:03 /usr/lib/firefox/firefox-contentproc-parentBuildID20211129150630-prefsLen8629-prefMapSize248981-appDir/usr/lib/firefox/browser4351truerdd
+6675    	 Web 00:03 /usr/lib/firefox/firefox-contentproc-childID6-isForBrowser-prefsLen8629-prefMapSize248981-jsInitLen278884-parentBuildID20211129150630-appDir/usr/lib/firefox/browser4351truetab
+67549    	 Web 00:03 /usr/lib/firefox/firefox-contentproc-childID506-isForBrowser-prefsLen9523-prefMapSize248981-jsInitLen278884-parentBuildID20211129150630-appDir/usr/lib/firefox/browser4351truetab
+67736    	 Web 00:03 /usr/lib/firefox/firefox-contentproc-childID507-isForBrowser-prefsLen9523-prefMapSize248981-jsInitLen278884-parentBuildID20211129150630-appDir/usr/lib/firefox/browser4351truetab
+67758    	 I 00:03 
+67789    	 Web 00:03 /usr/lib/firefox/firefox-contentproc-childID508-isForBrowser-prefsLen9523-prefMapSize248981-jsInitLen278884-parentBuildID20211129150630-appDir/usr/lib/firefox/browser4351truetab
+68115    	 Content) 00:03 /usr/lib/firefox/firefox-contentproc-childID509-isForBrowser-prefsLen9523-prefMapSize248981-jsInitLen278884-parentBuildID20211129150630-appDir/usr/lib/firefox/browser4351truetab
+68605    	 Content) 00:03 /usr/lib/firefox/firefox-contentproc-childID510-isForBrowser-prefsLen9523-prefMapSize248981-jsInitLen278884-parentBuildID20211129150630-appDir/usr/lib/firefox/browser4351truetab
+68637    	 Content) 00:03 /usr/lib/firefox/firefox-contentproc-childID511-isForBrowser-prefsLen9523-prefMapSize248981-jsInitLen278884-parentBuildID20211129150630-appDir/usr/lib/firefox/browser4351truetab
+68890    	 I 00:03 
+714    	 S 00:03 
+7265    	 S 00:03 
+73636    	 S 00:03 pickup-l-tunix-u-c
+738    	 S 00:03 
+746    	 S 00:03 
+747    	 S 00:03 
+76222    	 I 00:03 
+76352    	 I 00:03 
+76528    	 I 00:03 
+777    	 S 00:03 /sbin/rpcbind-f-w
+778    	 S 00:03 /lib/systemd/systemd-resolved
+779    	 S 00:03 /lib/systemd/systemd-timesyncd
+81349    	 I 00:03 
+9    	 I 00:03 
+90716    	 I 00:03 
+90764    	 I 00:03 
+90770    	 I 00:03 
+90797    	 I 00:03 
+90812    	 I 00:03 
+90863    	 I 00:03 
+90866    	 I 00:03 
+90907    	 I 00:03 
+91    	 I 00:03 
+92    	 I 00:03 
+93    	 I 00:03 
+93220    	 I 00:03 
+941    	 S 00:03 /usr/lib/accountsservice/accounts-daemon
+942    	 S 00:03 /usr/sbin/acpid
+9423    	 Web 00:03 /usr/lib/firefox/firefox-contentproc-childID47-isForBrowser-prefsLen8771-prefMapSize248981-jsInitLen278884-parentBuildID20211129150630-appDir/usr/lib/firefox/browser4351truetab
+945    	 S 00:03 avahi-daemon: running [lenovo.local]
+946    	 S 00:03 /usr/lib/bluetooth/bluetoothd
+948    	 S 00:03 /usr/sbin/cron-f
+95    	 I 00:03 
+950    	 S 00:03 /usr/bin/dbus-daemon--system--address=systemd:--nofork--nopidfile--systemd-activation--syslog-only
+952    	 S 00:03 /usr/sbin/NetworkManager--no-daemon
+95589    	 I 00:03 
+958    	 S 00:03 /usr/sbin/irqbalance--foreground
+959    	 S 00:03 /usr/bin/python3/usr/bin/networkd-dispatcher--run-startup-triggers
+96    	 I 00:03 
+961    	 S 00:03 /usr/lib/policykit-1/polkitd--no-debug
+967    	 S 00:03 /usr/sbin/rsyslogd-n-iNONE
+97    	 I 00:03 
+976    	 S 00:03 /usr/lib/snapd/snapd
+97950    	 S 00:03 less
+97968    	 S 00:03 /bin/bash./ps_ax.sh
+    	  00:03 
+    	  00:03 
+98    	 I 00:03 
+981    	 S 00:03 /usr/libexec/switcheroo-control
+984    	 S 00:03 /lib/systemd/systemd-logind
+987    	 S 00:03 /usr/lib/udisks2/udisksd
+989    	 S 00:03 /sbin/wpa_supplicant-u-s-O/run/wpa_supplicant
+99    	 I 00:03 
+994    	 S 00:03 avahi-daemon: chroot helper
