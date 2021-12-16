@@ -10,8 +10,10 @@
 
 ##### Описание
 + запускается скрипт test.sh
-+ добавляется задача от root в cron
-    `* */1 * * *  root /bin/sh ./test.sh > /var/log/parse.log 2>&1`
++ для отправки письма используем smpt-server и настроенный для него конфиг в /etc/ssmtp/ssmtp.conf, пример конфига в папке
++ добавляется задача от root в cron с защитой от мульти запуска
+    `* */1 * * *  /usr/bin/flock -xn /var/tmp/cron_job.lock -c /bin/sh ./test.sh > /var/log/parse.log 2>&1`
+
 
 ##### Топ 10 IP
      37 212.57.117.19

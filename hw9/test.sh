@@ -42,8 +42,9 @@ All codes: \
 $code 
 " > ./email.txt
 
-# отправляем письмо 
-sudo -u user@localhost < ./email.txt
+# отправляем письмо
+# также имеем ввиду что уже установлен smpt и есть конфиг для отправки ssmtp.confSubject: Some Bla Bla Bla Notification
+echo "$(cat email.txt)" | mailx -s 'Some Bla Bla Bla Notification' recipient@domain < ./email.txt
 
 # Определяем дату для переменной при следующем запуске
 awk -F" " '{print $4}' access.log > ./tmp/date.log
