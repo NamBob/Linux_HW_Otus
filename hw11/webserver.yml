@@ -1,0 +1,45 @@
+---
+- hosts: all
+  become: true
+  become_method: sudo
+  vars_files: vars.yml
+  
+  tasks: # Проверяю доступность сервера
+    - name: ping
+      action: ping
+    
+    - name: Install nginx Redhat # Установка nginx для Redhat
+      yum: 
+        name=nginx
+        state=latest
+      when:
+        ansible_os_family == "RedHat"
+      notify: 
+        - NGINX start
+
+    - name: Install nginx Debian # Установка nginx для Debian
+      apt: 
+        name=nginx
+        state=latest
+      when:
+         ansible_os_family == "Debian"
+      notify:
+        - NGINX start
+
+    - name: Setup NGINX CFG # Копируем конфиг nginx 
+      template:
+        src: "{{ nginx_src }}"
+        dest: "{{ nginx_dst }}"
+      notify:
+        - NGINX restart
+
+  handlers:
+    - name: NGINX start
+      service:
+        name: nginx.service
+        enabled: yes 
+        state: started
+    - name: NGINX restart
+      service:
+        name: nginx
+        state: restarted

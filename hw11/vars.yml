@@ -1,0 +1,3 @@
+---
+nginx_src: ./files/nginx.conf
+nginx_dst: /etc/nginx/nginx.conf
