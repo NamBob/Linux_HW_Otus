@@ -1,1 +1,10 @@
 # Linux_HW_Otus
+- [hw02](https://github.com/NamBob/Linux_HW_Otus/tree/main/hw02)
+- [hw04](https://github.com/NamBob/Linux_HW_Otus/tree/main/hw04)
+- [hw05](https://github.com/NamBob/Linux_HW_Otus/tree/main/hw05)
+- [hw06](https://github.com/NamBob/Linux_HW_Otus/tree/main/hw06)
+- [hw07](https://github.com/NamBob/Linux_HW_Otus/tree/main/hw07)
+- [hw08](https://github.com/NamBob/Linux_HW_Otus/tree/main/hw08)
+- [hw09](https://github.com/NamBob/Linux_HW_Otus/tree/main/hw09)
+- [hw10](https://github.com/NamBob/Linux_HW_Otus/tree/main/hw10)
+- [hw11](https://github.com/NamBob/Linux_HW_Otus/tree/main/hw11)
