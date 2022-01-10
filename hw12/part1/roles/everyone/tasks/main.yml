@@ -1,0 +1,24 @@
+---
+# tasks file for everyone
+- name: Stop service firewalld, if started
+  ansible.builtin.service:
+    name: firewalld
+    state: stopped
+    
+- name: install many utils
+  yum: 
+    name: "{{ item }}"
+    state: latest
+  loop:
+    - setools-console 
+    - policycoreutils-python
+    - vim
+
+- name: install nginx
+  yum: 
+    name: nginx
+    state: latest
+  when:
+    ansible_os_family == "RedHat"
+  notify:
+    - NGINX start
