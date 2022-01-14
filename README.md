@@ -9,3 +9,4 @@
 - [hw10 - работаем с процессами](https://github.com/NamBob/Linux_HW_Otus/tree/main/hw10)
 - [hw11 - Первые шаги с Ansible](https://github.com/NamBob/Linux_HW_Otus/tree/main/hw11)
 - [hw12 - SELinux - когда все запрещено ](https://github.com/NamBob/Linux_HW_Otus/tree/main/hw12)
+- [hw13 - PAM ](https://github.com/NamBob/Linux_HW_Otus/tree/main/hw13)
