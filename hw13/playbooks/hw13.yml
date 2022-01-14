@@ -1,0 +1,9 @@
+---
+- hosts: all
+  become: true
+  become_method: sudo
+  
+  roles:
+    - hw13_1    # Prepare host
+    - hw13_2    # pam ssh auth  by script 
+#    - hw13_31    # Install Docker & grant user rights to restart docker.service

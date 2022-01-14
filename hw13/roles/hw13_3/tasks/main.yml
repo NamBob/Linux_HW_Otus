@@ -1,0 +1,49 @@
+---
+# tasks file for hw13_3
+- name: Remove old docker
+  yum:
+    name: docker*
+    state: absent
+
+- name: Install yum utils
+  yum:
+    name: yum-utils
+    state: latest
+
+- name: Add Docker repo
+  get_url:
+    url: https://download.docker.com/linux/centos/docker-ce.repo
+    dest: /etc/yum.repos.d/docker-ce.repo
+
+- name: install docker
+  yum:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - docker-ce 
+    - docker-ce-cli 
+    - containerd.io
+
+- name: Start Docker service
+  service:
+    name: docker
+    state: started
+    enabled: yes
+
+- name: Add user day to docker group
+  user:
+    name: day
+    groups: docker
+    append: yes
+
+- name: create sudoer.d file for user day
+  file: 
+    path: /etc/sudoers.d/docker_restart
+    state: touch
+    mode: 0440
+
+- name: allow day restart docker
+  ansible.builtin.lineinfile:
+    path: /etc/sudoers.d/docker_restart
+    line: "{{ docker_restart }}"
+    create: yes

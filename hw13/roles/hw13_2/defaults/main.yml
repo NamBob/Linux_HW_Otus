@@ -1,0 +1,3 @@
+---
+# defaults file for hw13
+pam_script: /usr/local/bin/login.sh

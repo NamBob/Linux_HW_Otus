@@ -1,0 +1,25 @@
+---
+# tasks file for hw13
+- name: add group
+  ansible.builtin.group:
+    name: admin
+    state: present
+
+- name: add group "admin" to user "day"
+  ansible.builtin.user:
+    name: day
+    groups: admin
+    append: yes
+
+- name: copy bash script for checking users 
+  copy:
+    src: login.sh.template
+    dest: "{{ pam_script }}"
+    mode: 0751
+
+- name: add pam_exec module for ssh
+  ansible.builtin.lineinfile:
+    path: /etc/pam.d/sshd
+#    regexp: 'account    required     pam_nologin.so'
+    insertafter: 'account    required     pam_nologin.so'
+    line: 'account    required     pam_exec.so /usr/local/bin/login.sh'

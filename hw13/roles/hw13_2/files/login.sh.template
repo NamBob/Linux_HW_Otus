@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Only for debug
+# PAM_USER=root          # user if root
+# PAM_USER=day           # user in group admin
+# PAM_USER=friday        # user not in group admin
+# PAM_USER=anyday        # user not exists in system
+
+# variables 
+GRP=$(id $PAM_USER | awk -F ' ' '{print $3}')
+list_users=$(awk -F: '$3 >= 1000' /etc/passwd | awk -F ':' '{print $1}')
+
+# if user is Root,then allow access any day
+if [[ "$GRP" == *"root"* ]] ; then
+  exit 0
+fi
+
+# if user exists in group "admin",then allow access any day
+if [[ "$GRP" == *"admin"* ]] ; then
+  exit 0
+fi
+
+# if user not exists in group "admin",then allow access on weekdays
+# if user not exists in system,then deny access any day
+if [[ "$list_users" == *"$PAM_USER"* ]] ; then
+  if [[ $(date +%a) = "Sat" ]] || [[ $(date +%a) = "Sun" ]] ; then
+    exit 1
+  else
+    exit 0
+  fi
+fi
