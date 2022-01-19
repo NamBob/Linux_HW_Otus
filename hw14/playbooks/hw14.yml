@@ -1,0 +1,10 @@
+---
+- hosts: all
+  become: true
+  become_method: sudo
+  
+  roles:
+    - hw14_0      # Prepare host
+    - hw14_1    # Install Docker and create Docker user "Dock" 
+    - hw14_2    # Install Docker-compose
+    - hw14_3    # Prepare files for using docker

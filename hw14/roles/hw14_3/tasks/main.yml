@@ -1,0 +1,29 @@
+- name: "Create www directory"
+  file:
+    path: "{{ item }}"
+    state: directory
+    mode: 0744
+    group: root
+    owner: root
+  loop:
+    - /www
+    - /www/html
+    - /www/php
+    - /www/nginx
+
+- name: copy nginx.conf
+  copy:
+    src: nginx.conf.jnj
+    dest: /www/nginx/nginx.conf
+
+- name: copy html files
+  copy:
+    src: "{{ item }}"
+    dest: /www/html/
+  with_fileglob: "files/html/*"
+
+- name: copy dockerfile $ docker-compose.yml
+  copy:
+    src: "{{ item }}"
+    dest: /www/
+  with_fileglob: "files/docker/*"
