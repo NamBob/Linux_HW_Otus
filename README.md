@@ -11,3 +11,4 @@
 - [hw12 - SELinux - когда все запрещено ](https://github.com/NamBob/Linux_HW_Otus/tree/main/hw12)
 - [hw13 - PAM ](https://github.com/NamBob/Linux_HW_Otus/tree/main/hw13)
 - [hw14 - Docker, Dockerfile,Docker-compose ](https://github.com/NamBob/Linux_HW_Otus/tree/main/hw14)
+- [hw15 - Настройка мониторинга ](https://github.com/NamBob/Linux_HW_Otus/tree/main/hw15)

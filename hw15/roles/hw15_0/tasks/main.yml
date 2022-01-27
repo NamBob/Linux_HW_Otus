@@ -1,0 +1,39 @@
+---
+# tasks file for everyone
+- name: Stop service firewalld, if started
+  ansible.builtin.service:
+    name: firewalld
+    state: stopped
+
+- name: add users
+  ansible.builtin.user:
+    name: "{{ item }}"
+    password: "{{ upassword | password_hash('sha512') }}"
+    shell: /bin/bash
+    state: present
+  loop:
+    - dock
+
+- name: install many utils
+  yum: 
+    name: "{{ item }}"
+    state: latest
+  loop:
+    - setools-console 
+    - policycoreutils-python
+    - vim
+    - nmap-ncat
+    - tree
+    - bind-utils
+    - wget
+    
+- name: allow ssh-connect by password
+  ansible.builtin.replace:
+    path: /etc/ssh/sshd_config 
+    regexp: 'PasswordAuthentication no'
+    replace: 'PasswordAuthentication yes'
+
+- name: restart sshd
+  ansible.builtin.service:
+    name: sshd
+    state: restarted
