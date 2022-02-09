@@ -12,3 +12,4 @@
 - [hw13 - PAM ](https://github.com/NamBob/Linux_HW_Otus/tree/main/hw13)
 - [hw14 - Docker, Dockerfile,Docker-compose ](https://github.com/NamBob/Linux_HW_Otus/tree/main/hw14)
 - [hw15 - Настройка мониторинга ](https://github.com/NamBob/Linux_HW_Otus/tree/main/hw15)
+- [hw16 - Сбор и анализ логов ](https://github.com/NamBob/Linux_HW_Otus/tree/main/hw16)

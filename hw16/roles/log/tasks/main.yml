@@ -1,0 +1,38 @@
+---
+
+# this roles for configure log server
+
+- name: begin log role 
+  debug:
+    msg: "!!!!!   LOG ROLE BEGINNING   !!!!!"
+
+- name: copy rsyslog.conf.j2
+  copy:
+    src: rsyslog.conf.j2
+    dest: /etc/rsyslog.conf
+
+- name: restart rsyslog service
+  service:
+    name: rsyslog
+    state: restarted
+
+
+- name: firewalld open rsyslog
+  ansible.posix.firewalld:
+    port: "{{  item  }}"
+    zone: public
+    permanent: yes
+    state: enabled
+  loop:
+    - 514/udp
+    - 514/tcp
+    - 60/tcp
+  notify:
+    - restart firewalld
+
+- name: copy rsyslog.conf.j2
+  copy:
+    src: auditd.conf.j2
+    dest: /etc/audit/auditd.conf
+  notify:
+    - restart auditd.service

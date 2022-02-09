@@ -1,0 +1,11 @@
+---
+- hosts: web
+  become: true
+  become_method: sudo
+  
+  roles:
+#    - hw15_0      # Prepare host
+#    - hw15_1      # Install Docker & Docker user  
+#    - hw15_2      # Install Docker-compose
+    - web      # manual deploy Prometheus-Grafana
+    

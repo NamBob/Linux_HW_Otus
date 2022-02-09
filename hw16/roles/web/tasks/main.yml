@@ -1,0 +1,79 @@
+---
+
+# web server configure
+- name: begin web role 
+  debug:
+    msg: "!!!!!   WEB ROLE BEGINNING   !!!!!"
+
+- name: install nginx
+  yum:
+    name: nginx
+    state: latest
+
+- name: copy nginx cfg
+  copy: 
+    src: nginx.conf.j2
+    dest: /etc/nginx/nginx.conf
+
+- name: start nginx service
+  service:
+    name: nginx
+    state: started
+    enabled: yes
+
+- name: firewalld open http
+  ansible.posix.firewalld:
+    service: "{{  item  }}"
+    zone: public
+    permanent: yes
+    state: enabled
+  loop:
+    - http
+    - https
+  notify:
+    - restart firewalld
+
+- name: check auditd enabled 
+  package:
+    name: audit
+    state: present
+  check_mode: true
+  register: auditd_enabled
+
+- name: print executions result
+  debug:
+    msg: "AUDITD INSTALLED"
+  when: auditd_enabled is succeeded
+
+- name: copy auditd.conf
+  copy:
+    src: audit.rules.j2
+    dest: /etc/audit/rules.d/audit.rules
+  notify:
+    - restart auditd.service
+
+- name: install audispd-plugins
+  yum:
+    name: audispd-plugins
+    state: latest
+
+- name: copy audit.conf.j2
+  copy:
+    src: auditd.conf.j2
+    dest: /etc/audit/auditd.conf
+  notify:
+    - restart auditd.service
+
+- name: copy au-remote.conf.j2
+  copy:
+    src: au-remote.conf.j2
+    dest: /etc/audisp/plugins.d/au-remote.conf
+  notify:
+    - restart auditd.service
+
+- name: copy auditsp_remote.conf.j2
+  copy:
+    src: audisp-remote.conf.j2
+    dest: /etc/audisp/audisp-remote.conf
+  notify:
+    - restart auditd.service
