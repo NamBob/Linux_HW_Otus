@@ -1,0 +1,54 @@
+Vagrant.configure("2") do |config|
+  # Base VM OS configuration.
+  config.vm.box = "centos/7"
+  config.vm.box_version = "2004.01"
+  config.vm.provider :virtualbox do |v|
+    v.memory = 512
+    v.cpus = 1
+  end
+  config.vm.define :backup do |config|
+    config.vm.network "private_network", ip: "192.168.11.160"
+    config.vm.hostname = "backup"
+    config.vm.provider "virtualbox" do |v|
+      v.name = "backup"
+      backup_disk = './backup_sdb.vdi'
+      v.customize ['createhd', '--filename', backup_disk, '--size', 2 * 1024]
+      v.customize [ 'storageattach', 
+      :id, 
+      '--storagectl', 'IDE', 
+      '--port', 1, 
+      '--device', 0, 
+      '--type', 'hdd', 
+      '--medium', backup_disk]
+    end
+  end
+  config.vm.define :client do |config|
+    config.vm.network "private_network", ip: "192.168.11.150"
+    config.vm.hostname = "client"
+    config.vm.provider "virtualbox" do |v|
+      v.name = "client"
+    end
+  end
+  config.vm.define :log do |config|
+    config.vm.network "private_network", ip: "192.168.11.170"
+    config.vm.hostname = "log"
+    config.vm.provider "virtualbox" do |v|
+      v.name = "log"
+    end
+  end
+
+  config.vm.provision "file", source: "files/authorized_keys", destination: "~/authorized_keys"
+  config.vm.provision "shell", path: "./scripts/start.sh"
+  config.vm.provision "ansible" do |ansible|    
+    ansible.playbook = "./playbooks/default.yml"
+  end
+  config.vm.provision "ansible" do |ansible|    
+      ansible.playbook = "./playbooks/backup.yml"
+  end
+  config.vm.provision "ansible" do |ansible|    
+      ansible.playbook = "./playbooks/client.yml"
+  end
+  config.vm.provision "ansible" do |ansible|    
+    ansible.playbook = "./playbooks/log.yml"
+  end
+end

@@ -1,0 +1,7 @@
+---
+- hosts: backup
+  become: true
+  become_method: sudo
+  
+  roles:
+    - backup_role      # Prepare host

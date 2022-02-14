@@ -1,0 +1,4 @@
+---
+borg_ps: Otus1234
+borg_backup: borg@192.168.11.160:/var/backup/
+borg_user_pass: Otus12345

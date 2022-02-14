@@ -1,0 +1,15 @@
+---
+
+- name: restart firewalld
+  service:
+    name: firewalld
+    state: restarted
+
+- name: restart auditd.service
+  command: /sbin/service auditd restart
+
+- name: restart_rsyslog
+  systemd:
+    name: rsyslog.service
+    state: restarted
+    

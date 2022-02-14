@@ -1,0 +1,8 @@
+---
+- hosts: client
+  become: true
+  become_method: sudo
+    
+  roles:
+    - client_role      # Prepare host
+  

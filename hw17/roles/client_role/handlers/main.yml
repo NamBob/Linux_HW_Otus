@@ -1,0 +1,11 @@
+---
+
+- name: restart_borg_service
+  systemd:
+    name: borg-backup.timer
+    state: restarted
+
+- name: restart_rsyslog
+  systemd:
+    name: rsyslog.service
+    state: restarted

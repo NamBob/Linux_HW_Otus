@@ -1,0 +1,58 @@
+---
+
+- name: add user borg
+  user:
+    name: "{{  item  }}"
+    state: present
+    password: "{{ upassword | password_hash('sha512') }}"
+    shell: /bin/bash
+  loop:
+    - borg
+
+- name: create /home/borg/.ssh dir
+  file:
+    path:  /home/borg/.ssh
+    state: directory
+    owner: borg
+    group: borg
+    mode: 0700
+
+- name: create authorized_keys
+  file:
+    path: /home/borg/.ssh/authorized_keys
+    state: touch
+    owner: borg
+    group: borg
+    mode: 0600
+
+- name: create partition 
+  parted:
+    device: /dev/sdb
+    number: 1
+    state: present
+
+- name: Create a zfs filesystem on /dev/sdb1
+  filesystem:
+    fstype: xfs
+    dev: /dev/sdb1
+    state: present
+
+- name: create /var/backup directory
+  file:
+    path:  /var/backup
+    state: directory
+
+- name: mount /var/backup
+  mount:
+    path: /var/backup
+    opts: defaults
+    src: /dev/sdb1
+    fstype: xfs
+    state: mounted
+
+- name: set owner /var/backup
+  file:
+    path:  /var/backup
+    state: directory
+    owner: borg
+    group: borg
