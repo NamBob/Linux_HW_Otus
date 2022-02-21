@@ -158,7 +158,7 @@ Vagrant + Ansible (для каждого сервера/роутера своя 
       rtt min/avg/max/mdev = 23.331/23.618/23.905/0.287 ms
 
 
-Проверка маршрутов/связи с inetRouter до сервера в наружу и до каждой подсети.
+Проверка маршрутов/связи с inetRouter наружу и до сервера в каждой подсети.
 
       [root@inetRouter ~]# ip r
       default via 10.0.2.2 dev eth0 proto dhcp metric 100 
