@@ -1,0 +1,5 @@
+---
+
+- name: restart_network
+  shell: netplan apply
+  

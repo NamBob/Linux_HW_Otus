@@ -1,0 +1,13 @@
+---
+
+- name: delete default route
+  shell: ip route delete "{{  item  }}"
+  loop:
+    - default
+
+- name: copy network_cfg 
+  template:
+    src: 50-vagrant.yml.j2
+    dest: /etc/netplan/50-vagrant.yaml
+  notify:
+    - restart_network

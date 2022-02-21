@@ -1,0 +1,7 @@
+---
+- hosts: hw18gr
+  become: true
+  become_method: sudo
+  
+  roles:
+    - default_role      # Prepare host

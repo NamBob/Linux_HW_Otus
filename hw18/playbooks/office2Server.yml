@@ -1,0 +1,8 @@
+---
+
+- hosts: office2Server
+  become: true
+  become_method: sudo
+  
+  roles:
+    - office2Server

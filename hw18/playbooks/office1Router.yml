@@ -1,0 +1,7 @@
+---
+- hosts: office1Router
+  become: true
+  become_method: sudo
+  
+  roles:
+    - office1Router

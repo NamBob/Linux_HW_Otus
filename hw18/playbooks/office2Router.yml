@@ -1,0 +1,8 @@
+---
+
+- hosts: office2Router
+  become: true
+  become_method: sudo
+  
+  roles:
+    - office2Router
