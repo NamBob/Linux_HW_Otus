@@ -1,0 +1,30 @@
+---
+
+- name: start_httpd
+  service:
+    name: httpd
+    state: started
+    enabled: yes
+
+- name: restart_firewalld
+  service:
+    name: firewalld
+    state: restarted
+
+- name: start_dhcpd
+  service:
+    name: dhcpd
+    state: started
+    enabled: yes
+
+- name: restart_httpd
+  service:
+    name: httpd
+    state: restarted    
+
+- name: restart_dhcpd
+  service:
+    name: dhcpd
+    state: restarted
+    enabled: yes
+    

@@ -1,0 +1,7 @@
+---
+- hosts: pxeserver
+  become: true
+  become_method: sudo
+  
+  roles:
+    - pxeserver      # Prepare host

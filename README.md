@@ -15,3 +15,4 @@
 - [hw16 - Сбор и анализ логов ](https://github.com/NamBob/Linux_HW_Otus/tree/main/hw16)
 - [hw17 - Резервное копирование ](https://github.com/NamBob/Linux_HW_Otus/tree/main/hw17)
 - [hw18 - Структура сетей ](https://github.com/NamBob/Linux_HW_Otus/tree/main/hw18)
+- [hw18 - DHCP, PXE ](https://github.com/NamBob/Linux_HW_Otus/tree/main/hw19)

@@ -1,0 +1,99 @@
+---
+
+- name: install apache and other utils
+  yum:
+    name: "{{  item  }}"
+    state: latest
+  loop:
+    - httpd
+    - epel-release
+    - dhcp-server
+    - tftp-server
+    - nfs-utils
+  notify:
+    - start_httpd
+
+- name: copy boot.iso&dvd.iso
+  copy: 
+    src: "{{  item  }}"
+    dest: /mnt/
+    owner: vagrant
+    group: vagrant
+  loop:
+    - /home/nbt/otus/hw19/files/CentOS-8.4.2105-x86_64-boot.iso
+    - /home/nbt/otus/hw19/files/CentOS-8.4.2105-x86_64-dvd1.iso
+
+- name: firewalld allow http,tftp
+  firewalld:
+    service: "{{  item  }}"
+    permanent: yes
+    state: enabled
+  loop:
+    - http
+    - tftp
+  notify:
+    - restart_firewalld
+
+- name: copy dhcp.conf
+  template:
+    src: dhcpd.conf.j2
+    dest: /etc/dhcp/dhcpd.conf
+  notify:
+    - start_dhcpd
+
+- name: start tftp service
+  service: 
+    name: tftp
+    enabled: yes
+    state: started
+
+- name: install syslinux-tftpboot.noarch
+  yum:
+    name: syslinux-tftpboot.noarch
+    state: latest
+
+- name: create folder
+  file: 
+    path: /var/lib/tftpboot/pxelinux
+    state: directory
+    mode: 0644
+
+- name: copy tftpboot files 
+  copy:
+    remote_src: yes
+    src: "{{  item  }}"
+    dest: /var/lib/tftpboot/pxelinux
+  loop: 
+    - /tftpboot/pxelinux.0
+    - /tftpboot/libutil.c32
+    - /tftpboot/menu.c32
+    - /tftpboot/libmenu.c32
+    - /tftpboot/ldlinux.c32
+    - /tftpboot/vesamenu.c32
+
+- name: create /var/lib/tftpboot/pxelinux/pxelinux.cfg
+  file:
+    path: /var/lib/tftpboot/pxelinux/pxelinux.cfg
+    state: directory
+
+- name: copy pxelinux.cfg/default
+  template:
+    src: default.j2
+    dest: /var/lib/tftpboot/pxelinux/pxelinux.cfg/default
+
+- name: create /var/lib/tftpboot/pxelinux/images/CentOS-8/
+  file:
+    path: "{{  item  }}"
+    state: directory
+  loop:
+   - /var/lib/tftpboot/pxelinux/images/
+   - /var/lib/tftpboot/pxelinux/images/CentOS-8/
+
+- name:
+  get_url:
+    url: "{{  item  }}"
+    dest: /var/lib/tftpboot/pxelinux/images/CentOS-8/
+  loop:
+    - http://mirrors.powernet.com.ru/centos/8.4.2105/BaseOS/x86_64/os/images/pxeboot/vmlinuz
+    - http://mirrors.powernet.com.ru/centos/8.4.2105/BaseOS/x86_64/os/images/pxeboot/initrd.img
+    
