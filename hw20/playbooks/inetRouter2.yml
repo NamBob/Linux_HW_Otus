@@ -1,0 +1,7 @@
+---
+- hosts: inetRouter2
+  become: true
+  become_method: sudo
+  
+  roles:
+    - inetRouter2

@@ -1,0 +1,101 @@
+---
+
+- name: set up forward packages across routers
+  shell: echo "net.ipv4.ip_forward = 1" >> /etc/sysctl.conf 
+
+- name: install tcpdump
+  yum:
+    name:
+      - tcpdump
+    state: present
+    update_cache: true
+
+- name: start firewalld
+  service: 
+    name: firewalld
+    state: started
+    enabled: yes
+
+- name: add routes
+  template:
+    src: '{{  item  }}'
+    dest: /etc/sysconfig/network-scripts/
+  loop:
+    - route-eth1
+    - route-eth0
+  notify:
+    - restart_networking
+
+- name: add forwarding to firewalld
+  shell: |
+    firewall-cmd --zone=external --change-interface=eth0 --permanent
+    firewall-cmd --zone=external --change-interface=eth2 --permanent
+    firewall-cmd --direct --permanent --add-rule ipv4 nat POSTROUTING 0 -o eth0 -j MASQUERADE
+    firewall-cmd --direct --permanent --add-rule ipv4 filter FORWARD 0 -i eth1 -o eth0 -j ACCEPT
+    firewall-cmd --direct --permanent --add-rule ipv4 filter FORWARD 0 -i eth0 -o eth1 -m state --state RELATED,ESTABLISHED -j ACCEPT
+
+- name: install knock-server
+  yum:
+    name: knock-server
+    state: latest
+
+- name: copy knock conf
+  copy:
+    src: knockd.conf
+    dest: /etc/knockd.conf
+
+- name: start knockd
+  service: 
+    name: knockd
+    state: started
+    enabled: yes
+    
+- name: change knockd interface
+  lineinfile:
+    path: /etc/sysconfig/knockd
+    regexp: '#OPTIONS=""'
+    line: OPTIONS="-i eth1"
+  notify:
+    - restart_knockd.service
+
+- name: open knockd ports
+  firewalld:
+    port: "{{  item  }}"
+    permanent: yes
+    state: enabled
+  loop:
+    - 22322/udp
+    - 33433/tcp
+    - 44244/udp
+
+- name: deny ssh for default (public) zone
+  firewalld:
+    zone: public
+    service: ssh
+    state: disabled 
+    permanent: yes
+
+- name: add users
+  user:
+    name: day
+    password: "{{ upassword | password_hash('sha512') }}"
+    shell: /bin/bash
+    state: present
+
+- name: allow ssh-connect by password
+  replace:
+    path: /etc/ssh/sshd_config 
+    regexp: 'PasswordAuthentication no'
+    replace: 'PasswordAuthentication yes'
+  notify:
+    - restart_sshd
+
+
+- name: Reboot host and wait for it to restart
+  reboot:
+    msg: "Reboot initiated by Ansible"
+    connect_timeout: 5
+    reboot_timeout: 150
+    pre_reboot_delay: 0
+    post_reboot_delay: 30
+    test_command: whoami

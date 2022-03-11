@@ -1,0 +1,72 @@
+---
+
+- name: set up forward packages across routers
+  shell: echo "net.ipv4.ip_forward = 1" >> /etc/sysctl.conf 
+
+- name: install tcpdump
+  yum:
+    name:
+      - tcpdump
+    state: present
+    update_cache: true
+
+- name: start firewalld
+  service: 
+    name: firewalld
+    state: started
+    enabled: yes
+
+- name: add routes
+  template:
+    src: '{{  item  }}'
+    dest: /etc/sysconfig/network-scripts/
+  loop:
+    - route-eth1
+    - route-eth0
+  notify:
+    - restart_networking
+
+- name: add forwarding to firewalld
+  shell: |
+    firewall-cmd --zone=external --change-interface=eth0 --permanent
+    firewall-cmd --zone=external --change-interface=eth2 --permanent
+    firewall-cmd --direct --permanent --add-rule ipv4 nat POSTROUTING 0 -o eth0 -j MASQUERADE 
+    firewall-cmd --direct --permanent --add-rule ipv4 filter FORWARD 0 -i eth1 -o eth0 -j ACCEPT
+    firewall-cmd --direct --permanent --add-rule ipv4 filter FORWARD 0 -i eth0 -o eth1 -m state --state RELATED,ESTABLISHED -j ACCEPT
+    firewall-cmd --zone-external --add-forward-port=port=8080:proto=tcp:toport=80:toaddr=192.168.0.2 --permanent
+    firewall-cmd --reload
+
+- name: listen port 8080
+  firewalld:
+    port: 8080/tcp
+    zone: '{{  item  }}'
+    permanent: yes
+    immediate: yes
+    state: enabled
+  loop:
+#    - public          # for debug from internal
+    - external
+
+- name: Redirect port 8080 to 192.168.0.2:80
+  firewalld:
+    rich_rule: rule family=ipv4 forward-port port=8080 protocol=tcp to-port=80 to-addr=192.168.0.2
+    zone: '{{  item  }}'
+    permanent: true
+    immediate: true
+    state:     enabled
+  loop:
+#    - public           # for internal debugging
+    - external
+
+- name: enable masquerade
+  shell: firewall-cmd --zone=public --add-masquerade --permanent
+
+# This block for checking that all change is PERMANENT
+- name: Reboot host and wait for it to restart
+  reboot:
+    msg: "Reboot initiated by Ansible"
+    connect_timeout: 5
+    reboot_timeout: 150
+    pre_reboot_delay: 0
+    post_reboot_delay: 30
+    test_command: whoami

@@ -1,0 +1,46 @@
+- name: set eth1 config
+  template:
+    src: ifcfg-eth1.j2
+    dest: /etc/sysconfig/network-scripts/ifcfg-eth1
+  notify:
+    - restart_networking
+
+- name: delete default route
+  template:
+    src: ifcfg-eth0.j2
+    dest: /etc/sysconfig/network-scripts/ifcfg-eth0
+
+- name: delete default route
+  template:
+    src: ifcfg-eth3.j2
+    dest: /etc/sysconfig/network-scripts/ifcfg-eth3
+
+- name: add routes
+  template:
+    src: '{{  item  }}'
+    dest: /etc/sysconfig/network-scripts/
+  loop:
+    - route-eth0
+    - route-eth1
+    - route-eth3
+#    - route-eth6
+  notify:
+    - restart_networking
+  
+- name: set up forward packages across routers
+  shell: echo "net.ipv4.ip_forward = 1" >> /etc/sysctl.conf 
+
+- name: install knock-client
+  yum:
+    name: knock
+    state: latest
+
+- name: Reboot host and wait for it to restart
+  reboot:
+    msg: "Reboot initiated by Ansible"
+    connect_timeout: 5
+    reboot_timeout: 600
+    pre_reboot_delay: 0
+    post_reboot_delay: 30
+    test_command: whoami
+    

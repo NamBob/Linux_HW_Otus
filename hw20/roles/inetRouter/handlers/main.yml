@@ -1,0 +1,16 @@
+---
+
+- name: restart_networking
+  service:
+    name: network
+    state: restarted
+
+- name: restart_knockd.service 
+  service:
+    name: knockd
+    state: restarted
+
+- name: restart_sshd
+  service:
+    name: sshd
+    state: restarted
