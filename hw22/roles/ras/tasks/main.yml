@@ -1,0 +1,50 @@
+---
+
+- name: copy pki script
+  copy:
+    src: ras.sh
+    dest: /root/ras.sh
+    mode: 0755
+  when:
+    - ansible_hostname == "server"
+
+- name: init PKI & create certs
+  shell: /root/ras.sh
+  args:
+    chdir: /etc/openvpn/
+  when:
+    - ansible_hostname == "server"
+
+- name: copy to localhost certs & private.key
+  fetch:
+    src: "{{  item  }}"
+    dest: ../test_pki/
+    flat: yes
+  loop:
+    - /etc/openvpn/pki/ca.crt
+    - /etc/openvpn/pki/issued/client.crt
+    - /etc/openvpn/pki/private/client.key
+  when:
+    - ansible_hostname == "server"
+
+- name: set route for client
+  shell: echo 'iroute 192.168.33.0 255.255.255.0' > /etc/openvpn/client/client
+  when:
+    - ansible_hostname == "server"
+
+- name: copy openvpn.conf
+  copy: 
+    src: server.conf
+    dest: /etc/openvpn/server.conf
+    mode: 0644
+  when:
+    - ansible_hostname == "server"
+
+- name: restart openvpn@service
+  service:
+    name: openvpn@server
+    state: restarted
+    
+#- name: delete route to host vm
+#  shell: ip r delete 172.20.30.0/24 via 10.10.10.2 dev tun0
+#  tags: last

@@ -18,4 +18,5 @@
 - [hw19 - DHCP, PXE ](https://github.com/NamBob/Linux_HW_Otus/tree/main/hw19)
 - [hw20 - Фильтрация трафика - firewalld, iptables ](https://github.com/NamBob/Linux_HW_Otus/tree/main/hw20)
 - [hw21 - Статическая и динамическая маршрутизация, OSPF ](https://github.com/NamBob/Linux_HW_Otus/tree/main/hw21)
+- [hw21 - Мосты, туннели и VPN ](https://github.com/NamBob/Linux_HW_Otus/tree/main/hw22)
 

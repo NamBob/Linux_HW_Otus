@@ -1,0 +1,7 @@
+---
+- hosts: hw22gr
+  become: true
+  become_method: sudo
+  
+  roles:
+    - tap
