@@ -19,4 +19,5 @@
 - [hw20 - Фильтрация трафика - firewalld, iptables ](https://github.com/NamBob/Linux_HW_Otus/tree/main/hw20)
 - [hw21 - Статическая и динамическая маршрутизация, OSPF ](https://github.com/NamBob/Linux_HW_Otus/tree/main/hw21)
 - [hw22 - Мосты, туннели и VPN ](https://github.com/NamBob/Linux_HW_Otus/tree/main/hw22)
+- [hw23 - DNS - настройка и обслуживание ](https://github.com/NamBob/Linux_HW_Otus/tree/main/hw23)
 

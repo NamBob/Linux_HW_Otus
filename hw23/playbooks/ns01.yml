@@ -1,0 +1,7 @@
+---
+- hosts: ns01
+  become: yes
+
+  roles: 
+    - ns01
+    

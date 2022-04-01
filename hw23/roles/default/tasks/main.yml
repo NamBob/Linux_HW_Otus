@@ -1,0 +1,20 @@
+---
+
+- name: install packages
+  yum: 
+    name: "{{ item }}"
+    state: latest 
+  loop:
+    - bind
+    - bind-utils
+    - ntp
+    - net-tools
+    - vim
+
+- name: copy transferkey to all servers and the client
+  copy: 
+    src: named.zonetransfer.key 
+    dest: /etc/named.zonetransfer.key 
+    owner: root 
+    group: named 
+    mode: 0644
