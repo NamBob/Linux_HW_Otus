@@ -1,0 +1,20 @@
+---
+
+- name: set up forward packages across routers
+  sysctl:
+    name: net.ipv4.conf.all.forwarding
+    value: '1'
+    state: present
+
+- name: set eth1 config
+  copy:
+    src: "{{  item  }}"
+    dest: /etc/sysconfig/network-scripts/
+    owner: root
+    group: root
+    mode: 644
+  with_fileglob:
+    - ifcfg-*
+  notify:
+    - restart_networking
+  

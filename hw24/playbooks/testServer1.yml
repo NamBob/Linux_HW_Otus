@@ -1,0 +1,8 @@
+---
+- hosts: testServer1
+  become: true
+  become_method: sudo
+  
+  roles:
+    - testServer1
+    

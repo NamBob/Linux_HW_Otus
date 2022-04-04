@@ -1,0 +1,8 @@
+---
+
+- name: restart_networking
+  service:
+    name: network
+    state: restarted
+    enabled: yes
+    

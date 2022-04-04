@@ -1,0 +1,14 @@
+---
+
+- name: set vlan100 config
+  copy:
+    src: "{{  item  }}"
+    dest: /etc/sysconfig/network-scripts/
+    owner: root
+    group: root
+    mode: 644
+  with_fileglob:
+    - ifcfg-*
+  notify:
+    - restart_networking
+    

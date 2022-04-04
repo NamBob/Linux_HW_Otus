@@ -1,0 +1,9 @@
+---
+
+- name: install default utils
+  yum:
+    name: "{{  item  }}"
+    state: present
+  loop:
+    - vim
+    
