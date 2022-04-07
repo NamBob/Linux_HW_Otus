@@ -1,0 +1,22 @@
+---
+
+- name: copy hosts
+  copy:
+    src: client-hosts
+    dest: /etc/hosts
+    owner: root
+    group: root
+    mode: 0644
+  
+- name: install ipa-client util
+  yum:
+    name: ipa-client
+    state: latest
+
+- name: add ipaclient to domain hw25.otus
+  shell: ipa-client-install -U -p admin -w Secret123 --server=ipaserver.hw25.otus --ip-address=192.168.56.10 --domain=hw25.otus --realm=HW25.OTUS --hostname=ipaclient.hw25.otus --mkhomedir
+
+- name: reboot
+  reboot:
+  tags:
+    - last

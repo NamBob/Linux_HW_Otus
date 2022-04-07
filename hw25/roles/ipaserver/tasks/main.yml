@@ -1,0 +1,76 @@
+---
+
+- name: copy hosts
+  copy:
+    src: server-hosts
+    dest: /etc/hosts
+    owner: root
+    group: root
+    mode: 0644
+
+- name: start and enable firewalld
+  service:
+    name: firewalld
+    state: started
+    enabled: yes
+
+- name: configure firewalld service
+  firewalld:
+    service: "{{  item  }}" 
+    state: enabled
+    permanent: yes
+  loop:
+    - http
+    - https
+
+- name: configure firewalld port's
+  firewalld:
+    port: "{{  item  }}" 
+    state: enabled
+    permanent: yes
+  loop:
+    - 389/tcp
+    - 88/tcp
+    - 464/tcp
+    - 464/udp
+    - 123/udp
+
+- name: reload firewall
+  shell: firewall-cmd --reload
+  
+- name: edit ipaserver hostname
+  shell: hostnamectl set-hostname ipaserver.hw25.otus
+ 
+- name: install ipa-server
+  yum:
+    name: "{{  item  }}"
+    state: latest
+  loop:
+    - freeipa-server 
+    - bind 
+    - bind-dyndb-ldap
+
+- name: update nss*
+  shell: yum update nss* -y
+
+- name: init ipa-server
+  shell: ipa-server-install -a Secret123 --hostname=ipaserver.hw25.otus --realm HW25.OTUS -n hw25.otus -p Secret123 -n hw25.otus -U
+
+- name: start& enable ipa service
+  service:
+    name: ipa.service
+    state: started
+    enabled: yes
+
+- name: crease user passwd file
+  copy:
+    dest: /root/nomad
+    content: |
+      Secret123
+
+
+- name: create  ipa user
+  shell: "{{  item }}"
+  loop: 
+    - cat /root/nomad | kinit admin 
+    - cat /root/nomad | ipa user-add --first=Ja --last=Pan --cn=Japan --email=tokyo@japan.com --password --shell=/bin/bash --user-auth-type=password nomad

@@ -1,0 +1,10 @@
+---
+
+- name: install utils
+  yum:
+    name: "{{  item  }}"
+    state: latest
+  loop:
+    - vim
+    - tcpdump
+  
