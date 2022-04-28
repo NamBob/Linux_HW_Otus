@@ -22,4 +22,4 @@
 - [hw23 - DNS - настройка и обслуживание ](https://github.com/NamBob/Linux_HW_Otus/tree/main/hw23)
 - [hw24 - Сетевые пакеты. VLAN'ы. LACP ](https://github.com/NamBob/Linux_HW_Otus/tree/main/hw24)
 - [hw25 - LDAP. Централизованная авторизация и аутентификация ](https://github.com/NamBob/Linux_HW_Otus/tree/main/hw25)
-
+- [hw26 - Динамический веб ](https://github.com/NamBob/Linux_HW_Otus/tree/main/hw26)
