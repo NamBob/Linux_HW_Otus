@@ -9,10 +9,6 @@ ll
 wget --no-check-certificate https://www.openssl.org/source/old/1.1.1/openssl-1.1.1k.tar.gz
 tar -xvf openssl-1.1.1k.tar.gz
 
-
-
-http://www.percona.com/downloads/percona-release/redhat/0.1-6/percona-release-0.1-6.noarch.rpm -O /usr/share/nginx/html/repo/percona-release-0.1-6.noarch.rpm
-
 yum-builddep -y rpmbuild/SPECS/nginx.spec
 
 
