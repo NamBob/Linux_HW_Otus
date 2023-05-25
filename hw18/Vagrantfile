@@ -4,7 +4,7 @@
 # vim: set ft=ruby :
 
 MACHINES = {
-:inetRouter => {
+  :inetRouter => {
         :box_name => "centos/7",
         #:public => {:ip => '10.10.10.1', :adapter => 1},
         :net => [
